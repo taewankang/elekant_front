@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "./page/menu";
 
 function App() {
-  const asdf = "asdf";
+  const asdf ;
   return (
     <div>
       <Menu />
