@@ -1,11 +1,10 @@
 import React from "react";
-import Menu from "./page/menu";
+import BeforeLogin from "./component/menu/before_login/";
 
-function App() {
-  const asdf ;
+const App = () => {
   return (
     <div>
-      <Menu />
+      <BeforeLogin />
     </div>
   );
 }
