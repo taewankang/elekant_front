@@ -1,9 +1,9 @@
 import React from 'react';
-
+import LoginContent from '../component/login/LoginContent';
 const Login = () => {
   return (
     <div>
-      이건 로그인 화면입니다.
+      <LoginContent/>
     </div>
   )
 }

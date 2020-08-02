@@ -7,12 +7,12 @@ import SignUp from './page/SignUp';
 import Login from './page/Login';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-const App = ({history}) => {
+const App = () => {
   const {isLogin} = useSelector(state => state.reducer);
   return (
     <div>
-      {isLogin ? <AfterLogin /> : <BeforeLogin />}
       <Router>
+        {isLogin ? <AfterLogin /> : <BeforeLogin />}
         <Switch>
           <Route exact path='/' component={Home}/>    //메인 페이지
           <Route path='/signup' component={SignUp}/>  //회원가입 페이지
@@ -21,11 +21,6 @@ const App = ({history}) => {
       </Router>
     </div>
   );
-}
-
-const LoginException = ({history}) => {
-  alert('이미 로그인 하였습니다.');
-  history.replace('/');
 }
 
 export default App;
