@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import SignUp from './page/SignUp';
 import Login from './page/Login';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {Button} from 'antd';
 const App = () => {
   const {isLogin} = useSelector(state => state.reducer);
   return (
