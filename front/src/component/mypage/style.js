@@ -1,4 +1,4 @@
-import {MY_PAGE_BORDER} from '../../color';
+import {MY_PAGE_BORDER, BUTTON_COLOR} from '../../color';
 import styled from 'styled-components';
 export const Block = styled.div`
     width: 700px;
@@ -6,6 +6,7 @@ export const Block = styled.div`
     padding: 20px;
     display: flex;
     background-color: #FFFFFF;
+    color: #000000;
     border: 1px solid ${MY_PAGE_BORDER};
 `
 
@@ -24,4 +25,23 @@ export const Title = styled.div`
     background-color: #FFFFFF;
     color: #000000;
     border: 1px solid ${MY_PAGE_BORDER};
+`
+
+export const Input = styled.input`
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #CCC;
+    color: #555;
+    width: 200px;
+    &:focus{border-bottom: 1px solid #000000;}
+`
+
+export const CompleteButton = styled.button`
+    width: 100px;
+    height: 30px;
+    background-color: ${BUTTON_COLOR};
+    color: #FFFFFF;
+    font-weght: 800;
+    box-shadow: none;
+    border: 1px solid ${BUTTON_COLOR};
 `
