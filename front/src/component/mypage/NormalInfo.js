@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {MY_PAGE_BORDER} from '../../color';
+import {Block, Bold, Title} from './style';
 import {useSelector} from 'react-redux';
 const NormalContainer = styled.div`
     width: 1000px;
@@ -8,28 +8,12 @@ const NormalContainer = styled.div`
     font-color: #000000;
 `
 
-const Block = styled.div`
-    width: 700px;
-    height: 70px;
-    padding: 20px;
-    display: flex;
-    background-color: #FFFFFF;
-    border: 1px solid ${MY_PAGE_BORDER};
-`
-
-const Bold = styled.div`
-    width: 80px;
-    font-weight: 800;
-`
-
 const NormalInfo = () => {
     const {id, name, nickname, school, mail} = useSelector(state => state.reducer);
 
     return (
         <NormalContainer>
-            <Block>
-                <Bold style={{fontWeight: '900', fontSize: '20px'}}>기본 정보</Bold>
-            </Block>
+            <Title>기본 정보</Title>
             <Block>
                 <Bold>아이디</Bold> {id}
             </Block>
