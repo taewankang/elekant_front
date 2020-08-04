@@ -42,7 +42,7 @@ export const MenuButton = styled.button`
   border: 1px solid #FFFFFF;
   height: 30px;
   color: #FFFFFF;
-  min-width: 66px;
+  min-width: 75px;
   font-weight: bold;
   border-radius: 7px;
 `
