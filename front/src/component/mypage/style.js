@@ -11,7 +11,7 @@ export const Block = styled.div`
 `
 
 export const Bold = styled.div`
-    width: 80px;
+    width: 120px;
     font-weight: 800;
 `
 
@@ -34,6 +34,12 @@ export const Input = styled.input`
     color: #555;
     width: 200px;
     &:focus{border-bottom: 1px solid #000000;}
+`
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
 `
 
 export const CompleteButton = styled.button`

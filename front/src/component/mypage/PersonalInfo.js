@@ -1,6 +1,7 @@
+//마이 페이지 - 개인 정보 변경
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import {Block, Bold, Title, Input, CompleteButton} from './style';
+import {Block, Bold, Title, Input, CompleteButton, ButtonContainer} from './style';
 import {useSelector} from 'react-redux';
 import {PlusCircleOutlined} from '@ant-design/icons'
 import {BUTTON_COLOR} from '../../color';
@@ -8,32 +9,27 @@ import 'antd/dist/antd.css';
 
 const PersonContainer = styled.div`
     width: 700px;
-    height: 
-    background-color: #000000;
+    height: 400px;
 `
 
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-`
 const NameException = styled.span`
     color: ${BUTTON_COLOR};
     font-size: 12px;
     display: flex;
     align-items: center;
     margin-left: 20px;
-
 `
 
 const PersonalInfo = () => {
     const {name, nickname, school} = useSelector(state => state.reducer);
-    const [username, setName] = useState('');
-    const [userNick, setNickname] = useState('');
+    const [username, setName] = useState('');                       //이름
+    const [userNick, setNickname] = useState('');                   //닉네임
     const [checkName, setCheckName] = useState(false);
     const [checkNick, setCheckNick] = useState(false);
+
     const nameChange = (e) => {setName(e.target.value)}
     const nicknameChange = (e) => {setNickname(e.target.value)}
+
     const onSubmit = (e) => {
         e.preventDefault();
         if(username === '') setCheckName(true);
@@ -60,18 +56,12 @@ const PersonalInfo = () => {
                 <Block>
                     <Bold>이름 변경</Bold>
                     <Input value={username} onChange={nameChange}/>
-                    {
-                        checkName &&
-                        <NameException>※ 이름을 입력하세요</NameException>
-                    }
+                    { checkName && <NameException>※ 이름을 입력하세요</NameException> }
                 </Block>
                 <Block>
                     <Bold>닉네임 변경</Bold>
                     <Input value={userNick} onChange={nicknameChange}/>
-                    {
-                        checkNick &&
-                        <NameException>※ 이름을 입력하세요</NameException>
-                    }
+                    { checkNick && <NameException>※ 닉네임을 입력하세요</NameException> }
                 </Block>
                 <Block>
                     <Bold>학교 추가</Bold>
