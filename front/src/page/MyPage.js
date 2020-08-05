@@ -40,12 +40,12 @@ const MyPage = ({history}) => {
       <MyPageContainer>
         <MyPageContents>
           <Menu menuIdx={menuIdx} setMenuIdx={setMenuIdx}/>
-          { menuIdx === 0 && <NormalInfo/> }
-          { menuIdx === 1 && <IdentifyMento/> }
-          { menuIdx === 2 && <PersonalInfo/> }
-          { menuIdx === 3 && <ChangePassword/> }
-          { menuIdx === 4 && <Logout/> }
-          { menuIdx === 5 && <Exit/> }
+          { menuIdx === 0 && <NormalInfo /> }
+          { menuIdx === 1 && <IdentifyMento /> }
+          { menuIdx === 2 && <PersonalInfo /> }
+          { menuIdx === 3 && <ChangePassword /> }
+          { menuIdx === 4 && <Logout history={history}/> }
+          { menuIdx === 5 && <Exit history={history}/> }
         </MyPageContents>
       </MyPageContainer>
     )
