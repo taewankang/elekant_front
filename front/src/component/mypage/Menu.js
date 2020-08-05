@@ -1,3 +1,4 @@
+//마이 페이지 - 좌측 메뉴
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import {MY_PAGE_BORDER, MY_PAGE_BUTTON} from '../../color';

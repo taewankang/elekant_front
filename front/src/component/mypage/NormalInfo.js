@@ -1,3 +1,4 @@
+// 마이 페이지 - 기본 정보
 import React from 'react';
 import styled from 'styled-components';
 import {Block, Bold, Title} from './style';
