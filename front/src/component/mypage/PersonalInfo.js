@@ -1,5 +1,5 @@
 //마이 페이지 - 개인 정보 변경
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import styled from 'styled-components';
 import {Block, Bold, Title, Input, CompleteButton, ButtonContainer} from './style';
 import {useSelector} from 'react-redux';
@@ -27,8 +27,8 @@ const PersonalInfo = () => {
     const [checkName, setCheckName] = useState(false);
     const [checkNick, setCheckNick] = useState(false);
 
-    const nameChange = (e) => {setName(e.target.value)}
-    const nicknameChange = (e) => {setNickname(e.target.value)}
+    const nameChange = useCallback((e) => {setName(e.target.value)})
+    const nicknameChange = useCallback((e) => {setNickname(e.target.value)})
 
     const onSubmit = (e) => {
         e.preventDefault();

@@ -49,5 +49,7 @@ export const CompleteButton = styled.button`
     color: #FFFFFF;
     font-weght: 800;
     box-shadow: none;
+    outline: none;
+    cursor: pointer;
     border: 1px solid ${BUTTON_COLOR};
 `

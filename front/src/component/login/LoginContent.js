@@ -13,7 +13,8 @@ const LoginContent = ({history}) => {
     console.log('Success:', values);
     dispatch({type: LOGIN_REQUEST})
     //로그인이 성공했을 때 넘어가도록 중간에 넣어줘야 됨
-    history.push('/');
+    
+    history.replace('/');
   });
 
   const onFinishFailed = useCallback(errorInfo => {
