@@ -5,22 +5,10 @@ import {
   SignUpContainer,
   SignUpContents,
 } from "./style";
-import { Form, Input, Button, Menu, Drowdown, Dropdown } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-const menu = (
-  <Menu>
-    <Menu.Item>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="http://www.alipay.com/"
-      >
-        1st menu item
-      </a>
-    </Menu.Item>
-  </Menu>
-);
+import { Form, Input, Button, Menu, Select, Col } from "antd";
 
+const { Option } = Select;
+const { Search } = Input;
 const SignUpContent = () => {
   return (
     <div>
@@ -45,21 +33,32 @@ const SignUpContent = () => {
               <Form.Item name="password_check">
                 <Input.Password placeholder="비밀번호 확인" />
               </Form.Item>
-              <Form.Item name="school">
-                <Input placeholder="학교 찾기" /> <Button>asdf</Button>
+              <Form.Item>
+                <Search placeholder="학교 검색" style={{ width: 400 }} />
+              </Form.Item>
+              <Form.Item name="mail_last">
+                <div style={{ display: "flex" }}>
+                  <Col span={15}>
+                    <div style={{ display: "flex" }}>
+                      <Input placeholder="mail" />@
+                    </div>
+                  </Col>
+                  <Select defaultValue="naver" style={{ width: 160 }}>
+                    <Option value="naver">naver.com</Option>
+                    <Option value="gmail">gmail.com</Option>
+                    <Option value="직접입력">직접입력</Option>
+                  </Select>
+                </div>
+              </Form.Item>
+              <Form.Item name="cerification">
+                <div style={{ display: "flex" }}>
+                  <Col span={7}>
+                    <Input placeholder="인증번호" />
+                  </Col>
+                  <Button>확인</Button>
+                </div>
               </Form.Item>
 
-              <Form.Item name="mail">
-                <Input placeholder="mail" />
-              </Form.Item>
-              <Dropdown overlay={menu}>
-                <a
-                  className="ant-dropdown-link"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Hover me <DownOutlined />
-                </a>
-              </Dropdown>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Form.Item>
                   <Button
