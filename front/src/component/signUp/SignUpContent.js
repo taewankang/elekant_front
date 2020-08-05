@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Title,
   InputContainer,
   SignUpContainer,
   SignUpContents,
 } from "./style";
-import { Form, Input, Button, Menu, Select, Col } from "antd";
+import { Form, Input, Button, Select, Col } from "antd";
 
 const { Option } = Select;
 const { Search } = Input;
+
 const SignUpContent = () => {
+  const [id, setId] = useState("");
+  const [password, setPw] = useState("");
+  const [pw_check, setCheck] = useState("");
+  const [mail, setMail] = useState("");
+  const [same, setSame] = useState(false);
+
+  const onChange = (e) => {
+    if (e.target.id === "basic_username") {
+      setId(e.target.value);
+    } else if (e.target.id === "basic_password") {
+      setPw(e.target.value);
+    } else if (e.target.id === "basic_password_check") {
+      setCheck(e.target.value);
+    }
+  };
   return (
     <div>
       <SignUpContainer>
@@ -22,8 +38,11 @@ const SignUpContent = () => {
               initialValues={{ remember: true }}
             >
               <Form.Item
+                className="username"
                 name="username"
                 rules={[{ required: true, message: "아이디를 입력하세요!" }]}
+                value={id}
+                onChange={onChange}
               >
                 <Input placeholder="아이디" />
               </Form.Item>
@@ -38,16 +57,8 @@ const SignUpContent = () => {
               </Form.Item>
               <Form.Item name="mail_last">
                 <div style={{ display: "flex" }}>
-                  <Col span={15}>
-                    <div style={{ display: "flex" }}>
-                      <Input placeholder="mail" />@
-                    </div>
-                  </Col>
-                  <Select defaultValue="naver" style={{ width: 160 }}>
-                    <Option value="naver">naver.com</Option>
-                    <Option value="gmail">gmail.com</Option>
-                    <Option value="직접입력">직접입력</Option>
-                  </Select>
+                  <Input placeholder="mail" />
+                  <Button>메일인증</Button>
                 </div>
               </Form.Item>
               <Form.Item name="cerification">
