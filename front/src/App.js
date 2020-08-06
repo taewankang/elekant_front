@@ -11,7 +11,7 @@ import Board from "./page/Board";
 import MyPage from "./page/MyPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const App = () => {
-  const { isLogin } = useSelector((state) => state.reducer);
+  const { isLogin } = useSelector((state) => state.user);
   return (
     <div>
       <Router>

@@ -12,7 +12,7 @@ const ButtonContainer = styled.div`
 `
 
 const Logout = ({history}) => {
-    const {isLogin, id, nickname, school, mail} = useSelector(state => state.reducer);
+    const {isLogin, id, nickname, school, mail} = useSelector(state => state.user);
     const dispatch = useDispatch();
     const logoutClick = useCallback(() => {
         //dispatch를 이용해서 reducer에 있는 사용자 관련 기록들 지워주는 작업이 필요

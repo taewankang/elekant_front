@@ -5,7 +5,7 @@ import {Container, Block, Bold, Title} from './style';
 import {useSelector} from 'react-redux';
 
 const NormalInfo = () => {
-    const {id, name, nickname, school, mail} = useSelector(state => state.reducer);
+    const {id, name, nickname, school, mail} = useSelector(state => state.user);
 
     return (
         <Container>

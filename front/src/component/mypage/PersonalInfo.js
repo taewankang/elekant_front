@@ -15,7 +15,7 @@ const NameException = styled.span`
 `
 
 const PersonalInfo = () => {
-    const {name, nickname, school} = useSelector(state => state.reducer);
+    const {name, nickname, school} = useSelector(state => state.user);
     const [username, setName] = useState('');                       //이름
     const [userNick, setNickname] = useState('');                   //닉네임
     const [checkName, setCheckName] = useState(false);

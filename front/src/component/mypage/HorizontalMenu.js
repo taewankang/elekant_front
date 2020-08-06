@@ -13,7 +13,13 @@ const HorizontalMenuContainer = styled.div`
 const HorizontalMenu = ({menuIdx, setMenuIdx}) => {
   return (
     <HorizontalMenuContainer>
-      <Menu style={{display: 'flex', justifyContent: 'space-around', width: '100%'}}selectedKeys={menuIdx+''} mode="horizontal">
+      <Menu 
+        style={{
+          display: 'flex', 
+          justifyContent: 'space-around', 
+          width: '100%'}} 
+        selectedKeys={menuIdx+''} 
+        mode="horizontal">
         <Menu.Item 
           style={{margin: '0px', padding: '0px'}} 
           key='0' 

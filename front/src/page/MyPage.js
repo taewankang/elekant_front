@@ -76,7 +76,7 @@ const HorizontalMenuContainer = styled.div`
 
 const MyPage = ({history}) => {
   const [menuIdx, setMenuIdx] = useState(0);
-  const {isLogin} = useSelector(state => state.reducer);
+  const {isLogin} = useSelector(state => state.user);
 
   useEffect(() => {
     if(!isLogin) {

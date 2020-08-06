@@ -4,14 +4,16 @@ import { Form, Input, Button } from 'antd';
 import {useDispatch, useSelector} from 'react-redux';
 import 'antd/dist/antd.css';
 import {BUTTON_COLOR} from '../../color';
-import {LOGIN_REQUEST} from '../../reducer/reducer';
+import {LOGIN_REQUEST} from '../../reducer/user';
 const LoginContent = ({history}) => {
   const dispatch = useDispatch();
-  const {id, password, isLogin} = useSelector(state => state.reducer);
   
   const onFinish = useCallback(values => {    //values에 아이디, 비밀번호 값이 다 저장되어 있음
     console.log('Success:', values);
-    dispatch({type: LOGIN_REQUEST})
+    dispatch({
+      type: LOGIN_REQUEST,
+      data: values,
+    })
     //로그인이 성공했을 때 넘어가도록 중간에 넣어줘야 됨
     
     history.replace('/');
