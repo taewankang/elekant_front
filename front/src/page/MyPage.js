@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Menu from "../component/mypage/Menu";
+import VerticalMenu from "../component/mypage/VerticalMenu";
 import NormalInfo from "../component/mypage/NormalInfo";
 import ChangePassword from "../component/mypage/ChangePassword";
 import Exit from "../component/mypage/Exit";
@@ -9,12 +9,30 @@ import PersonalInfo from "../component/mypage/PersonalInfo";
 import styled from "styled-components";
 import {MY_PAGE_BUTTON} from "../color";
 import {useSelector} from 'react-redux';
+import {MY_PAGE_APP_WIDTH} from '../constant';
+import HorizontalMenu from '../component/mypage/HorizontalMenu';;
 const MyPageContainer = styled.div`
   display: flex;
-  justify-content: center;
   height: 100vh;
-  width: 100%;
+  overflow-x: auto;
   background-color: ${MY_PAGE_BUTTON};
+  width: 100%;
+  // 화면이 640보다 작을 때
+  @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){   
+    justify-content: center;
+    width: 100%;
+  }
+
+  // 화면이 640보다 클 때
+  @media only screen and (min-width: ${MY_PAGE_APP_WIDTH}px){
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  // 화면이 1020보다 클 때
+  @media only screen and (min-width: 1020px){
+    justify-content: center;
+  }
 `
 
 const MyPageContents = styled.div`
@@ -22,6 +40,36 @@ const MyPageContents = styled.div`
   display: flex;
   height: 700px;
   margin-top: 80px;
+
+  //화면이 640보다 작을 때
+  @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){
+    width: 100%;
+  }
+
+  //화면이 640보다 클 때
+  @media only screen and (min-width: ${MY_PAGE_APP_WIDTH}px){
+    overflow-x: auto;
+    width: 100%;
+    min-width: 1020px;
+  }
+  
+  //화면이 1020보다 클 때
+  @media only screen and (min-width: 1020px){
+    width: 1020px;
+  }
+
+`
+
+const VerticalMenuContainer = styled.div`
+  @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){
+    display: none;
+  }
+`
+
+const HorizontalMenuContainer = styled.div`
+  @media only screen and (min-width: (${MY_PAGE_APP_WIDTH} + 1)px){
+    display: none;
+  }
 `
 
 const MyPage = ({history}) => {
@@ -39,7 +87,12 @@ const MyPage = ({history}) => {
     return (
       <MyPageContainer>
         <MyPageContents>
-          <Menu menuIdx={menuIdx} setMenuIdx={setMenuIdx}/>
+          <VerticalMenuContainer>
+            <VerticalMenu menuIdx={menuIdx} setMenuIdx={setMenuIdx}/>
+          </VerticalMenuContainer>
+          <HorizontalMenuContainer>
+            <HorizontalMenu menuIdx={menuIdx} setMenuIdx={setMenuIdx}/>
+          </HorizontalMenuContainer>
           { menuIdx === 0 && <NormalInfo /> }
           { menuIdx === 1 && <IdentifyMento /> }
           { menuIdx === 2 && <PersonalInfo /> }

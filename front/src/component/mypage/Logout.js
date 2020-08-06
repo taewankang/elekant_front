@@ -1,12 +1,8 @@
 //마이 페이지 - 로그아웃
 import React, {useCallback} from 'react';
 import styled from 'styled-components';
-import {Title, Block, CompleteButton} from './style';
+import {Container, Title, Block, CompleteButton} from './style';
 import {useSelector, useDispatch} from 'react-redux';
-const LogoutContainer = styled.div`
-    width: 700px;
-    height: 400px;
-`
 
 const ButtonContainer = styled.div`
     margin-top: 50px;
@@ -24,7 +20,7 @@ const Logout = ({history}) => {
     })
 
     return (
-        <LogoutContainer>
+        <Container>
             <Title>로그아웃</Title>
             <Block style={{height: '150px', display: 'block'}}>
                 정말 로그아웃 하시겠습니까?
@@ -32,7 +28,7 @@ const Logout = ({history}) => {
                     <CompleteButton onClick={logoutClick}>로그아웃</CompleteButton>
                 </ButtonContainer>
             </Block>
-        </LogoutContainer>
+        </Container>
     )
 }
 
