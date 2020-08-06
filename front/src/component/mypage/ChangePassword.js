@@ -1,12 +1,8 @@
 //마이 페이지 - 비밀번호 변경
 import React, {useState, useEffect, useCallback} from 'react';
-import {Block, Bold, Input, Title, CompleteButton, ButtonContainer} from './style';
+import {Container, Block, Bold, Input, Title, CompleteButton, ButtonContainer} from './style';
 import styled from 'styled-components';
 import {BUTTON_COLOR} from '../../color';
-const ChangeContainer = styled.div`
-    width: 700px;
-    height: 400px;
-`
 
 const PasswordException = styled.span`
     color: ${BUTTON_COLOR};
@@ -42,7 +38,7 @@ const ChangePassword = () => {
     }
 
     return (
-        <ChangeContainer>
+        <Container>
             <Title>비밀번호 변경</Title>
             <form onSubmit={onSubmit}>
                 <Block>
@@ -62,7 +58,7 @@ const ChangePassword = () => {
                     <CompleteButton>비밀번호 변경</CompleteButton>
                 </ButtonContainer>
             </form>
-        </ChangeContainer>
+        </Container>
     )
 }
 

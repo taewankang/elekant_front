@@ -1,19 +1,14 @@
 // 마이 페이지 - 기본 정보
 import React from 'react';
 import styled from 'styled-components';
-import {Block, Bold, Title} from './style';
+import {Container, Block, Bold, Title} from './style';
 import {useSelector} from 'react-redux';
-const NormalContainer = styled.div`
-    width: 1000px;
-    height: 500px;
-    font-color: #000000;
-`
 
 const NormalInfo = () => {
     const {id, name, nickname, school, mail} = useSelector(state => state.reducer);
 
     return (
-        <NormalContainer>
+        <Container>
             <Title>기본 정보</Title>
             <Block>
                 <Bold>아이디</Bold> {id}
@@ -30,7 +25,7 @@ const NormalInfo = () => {
             <Block>
                 <Bold>학교 메일</Bold> {mail}
             </Block>
-        </NormalContainer>
+        </Container>
     )
 }
 

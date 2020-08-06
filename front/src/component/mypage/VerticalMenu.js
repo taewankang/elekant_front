@@ -16,7 +16,7 @@ const Block = styled.div`
 `
 const Button = styled.button`
   width: 200px;
-  height: 70px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
@@ -30,7 +30,7 @@ const Button = styled.button`
 
 const ClickButton = styled.button`
   width: 200px;
-  height: 70px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   background-color: ${MY_PAGE_BUTTON};
@@ -45,6 +45,9 @@ const ClickButton = styled.button`
 
 const MenuContainer=styled.div`
   margin-right: 100px;
+  margin-left: 10px;
+  width: 200px;
+  min-width: 200px;
 `
 
 const Menu = ({menuIdx, setMenuIdx}) => {
