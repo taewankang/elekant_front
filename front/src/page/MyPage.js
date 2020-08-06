@@ -7,15 +7,16 @@ import IdentifyMento from "../component/mypage/IdentifyMento";
 import Logout from "../component/mypage/Logout";
 import PersonalInfo from "../component/mypage/PersonalInfo";
 import styled from "styled-components";
-import {MY_PAGE_BUTTON} from "../color";
+import {MY_PAGE_BACKGROUND} from "../color";
 import {useSelector} from 'react-redux';
 import {MY_PAGE_APP_WIDTH} from '../constant';
-import HorizontalMenu from '../component/mypage/HorizontalMenu';;
+import HorizontalMenu from '../component/mypage/HorizontalMenu';
+
 const MyPageContainer = styled.div`
   display: flex;
   height: 100vh;
   overflow-x: auto;
-  background-color: ${MY_PAGE_BUTTON};
+  background-color: ${MY_PAGE_BACKGROUND};
   width: 100%;
   // 화면이 640보다 작을 때
   @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){   
@@ -44,10 +45,11 @@ const MyPageContents = styled.div`
   //화면이 640보다 작을 때
   @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){
     width: 100%;
+    flex-direction: column;
   }
 
   //화면이 640보다 클 때
-  @media only screen and (min-width: ${MY_PAGE_APP_WIDTH}px){
+  @media only screen and (min-width: ${MY_PAGE_APP_WIDTH + 1}px){
     overflow-x: auto;
     width: 100%;
     min-width: 1020px;
@@ -67,7 +69,7 @@ const VerticalMenuContainer = styled.div`
 `
 
 const HorizontalMenuContainer = styled.div`
-  @media only screen and (min-width: (${MY_PAGE_APP_WIDTH} + 1)px){
+  @media only screen and (min-width: ${MY_PAGE_APP_WIDTH + 1}px){
     display: none;
   }
 `
