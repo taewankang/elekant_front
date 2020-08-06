@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Title,
   InputContainer,
@@ -17,6 +17,7 @@ const SignUpContent = () => {
   const [mail, setMail] = useState("");
   const [same, setSame] = useState(false);
 
+  useEffect(() => {}, [password, pw_check]);
   const onChange = (e) => {
     if (e.target.id === "basic_username") {
       setId(e.target.value);
@@ -24,6 +25,7 @@ const SignUpContent = () => {
       setPw(e.target.value);
     } else if (e.target.id === "basic_password_check") {
       setCheck(e.target.value);
+      if (pw_check === password) setSame(true);
     } else if (e.target.id === "basic_mail") {
       setMail(e.target.value);
     }
@@ -48,10 +50,19 @@ const SignUpContent = () => {
               >
                 <Input placeholder="아이디" />
               </Form.Item>
-              <Form.Item name="password" value={password}>
+              <Form.Item
+                name="password"
+                value={password}
+                onChange={onChange}
+                rules={[{ required: true, message: "비밀번호를 입력하세요!" }]}
+              >
                 <Input.Password placeholder="비밀번호" />
               </Form.Item>
-              <Form.Item name="password_check" value={pw_check}>
+              <Form.Item
+                name="password_check"
+                value={pw_check}
+                onChange={onChange}
+              >
                 <Input.Password placeholder="비밀번호 확인" />
               </Form.Item>
               <Form.Item>
