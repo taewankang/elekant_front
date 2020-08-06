@@ -1,11 +1,13 @@
-import React from 'react';
-
+import React from "react";
+import Square from "./Square";
+import BigPicture from "./BicPicture";
 const BeforeLoginContent = () => {
   return (
-    <div>
-      이건 로그인 하기 전 화면입니다.
+    <div style={{ position: "relative" }}>
+      <BigPicture />
+      <Square />
     </div>
-  )
-}
+  );
+};
 
-export default BeforeLoginContent
+export default BeforeLoginContent;
