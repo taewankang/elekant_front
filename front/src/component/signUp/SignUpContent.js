@@ -15,9 +15,16 @@ const SignUpContent = () => {
   const [password, setPw] = useState("");
   const [pw_check, setCheck] = useState("");
   const [mail, setMail] = useState("");
-  const [same, setSame] = useState(false);
 
-  useEffect(() => {}, [password, pw_check]);
+  const [status, setStatus] = useState("error");
+
+  useEffect(() => {
+    if (password === pw_check) setStatus("success");
+    else {
+      setStatus("error");
+    }
+  }, [pw_check]);
+
   const onChange = (e) => {
     if (e.target.id === "basic_username") {
       setId(e.target.value);
@@ -25,7 +32,6 @@ const SignUpContent = () => {
       setPw(e.target.value);
     } else if (e.target.id === "basic_password_check") {
       setCheck(e.target.value);
-      if (pw_check === password) setSame(true);
     } else if (e.target.id === "basic_mail") {
       setMail(e.target.value);
     }
@@ -62,6 +68,11 @@ const SignUpContent = () => {
                 name="password_check"
                 value={pw_check}
                 onChange={onChange}
+                hasFeedback
+                validateStatus={status}
+                rules={[
+                  { required: true, message: "비밀번호를 다시 입력해주세요" },
+                ]}
               >
                 <Input.Password placeholder="비밀번호 확인" />
               </Form.Item>
