@@ -24,6 +24,8 @@ const SignUpContent = () => {
       setPw(e.target.value);
     } else if (e.target.id === "basic_password_check") {
       setCheck(e.target.value);
+    } else if (e.target.id === "basic_mail") {
+      setMail(e.target.value);
     }
   };
   return (
@@ -46,16 +48,16 @@ const SignUpContent = () => {
               >
                 <Input placeholder="아이디" />
               </Form.Item>
-              <Form.Item name="password">
+              <Form.Item name="password" value={password}>
                 <Input.Password placeholder="비밀번호" />
               </Form.Item>
-              <Form.Item name="password_check">
+              <Form.Item name="password_check" value={pw_check}>
                 <Input.Password placeholder="비밀번호 확인" />
               </Form.Item>
               <Form.Item>
                 <Search placeholder="학교 검색" style={{ width: 400 }} />
               </Form.Item>
-              <Form.Item name="mail_last">
+              <Form.Item name="mail" value={mail}>
                 <div style={{ display: "flex" }}>
                   <Input placeholder="mail" />
                   <Button>메일인증</Button>
