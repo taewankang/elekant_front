@@ -7,14 +7,14 @@ import {
 } from "@ant-design/icons";
 const Box = styled.div`
   width: 33%;
-  height: 300px;
-  border: 1px solid black;
+  height: 20rem;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  background-color: #ffffff;
   .icon {
     font-size: 17rem;
-    padding: 1rem;
-  }
-  &:hover {
-    background-color: #e4ddff;
+    padding: 2rem;
   }
 `;
 
@@ -29,7 +29,7 @@ function Square() {
         justifyContent: "center",
       }}
     >
-      <Box>
+      <Box style={{ background: "#ffd6f5" }}>
         <a>
           <InstagramOutlined className="icon" onClick={onClick} />
         </a>
@@ -39,7 +39,7 @@ function Square() {
           <YoutubeOutlined className="icon" />
         </a>
       </Box>
-      <Box>
+      <Box style={{ background: "#c9fff2" }}>
         <a>
           <Html5Outlined className="icon" />
         </a>
