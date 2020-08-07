@@ -1,24 +1,39 @@
-import React, {useEffect} from 'react';
-import {useSelector} from 'react-redux';
+import React, {useEffect, useState, useCallback} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import { Pagination } from 'antd';
+import {REQUEST_BOARD_DATA} from '../../reducer/board';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 import 'antd/dist/antd.css';
 import {
   BoardContainer, BoardContents, Title, 
   BoardTitle, Id, Description, Watch,
   Date, Writer, Content, Comments,
-  Block, PaginationContainer
+  Block, PaginationContainer, Button,
+  ButtonContainer, SpinContainer
 } from './style';
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const BoardContent = ({history}) => {
+  const dispatch = useDispatch();
   const {isLogin} = useSelector(state => state.user);
   const state = useSelector(state => state.board);
+  const [page, setPage] = useState(1);    //게시판 페이지
   useEffect(() => { //로그인 안 했을 때 들어오는 것 방지
     if(!isLogin) {
       alert('로그인이 필요합니다.');
       history.push('/');
-    }
+    } 
+    dispatch({type: REQUEST_BOARD_DATA})    //서버에서 게시판 목록 불러오기
   }, [])
+
+  useEffect(useCallback(() => {
+    history.push({
+      pathname: '/board',
+      search: `?page=${page}`
+    })
+  }), [page])
 
   if(isLogin === true){
     return (
@@ -35,15 +50,15 @@ const BoardContent = ({history}) => {
           </BoardTitle>
           <Content>
             {
-              state.length !== 0 && 
+              state.length !== 0 ?
               state.map(item => {
                 return (
                   <Block key={item.id}>
                     <Id>{state.length - item.id + 1}</Id>
                     <Description>
-                      {/* <Link to={}> */}
+                      <Link style={{color: '#000000'}} to={`/board/detail/${item.id}`}>
                         {item.title}
-                      {/* </Link> */}
+                      </Link>
                     </Description>
                     <Watch>{item.watch}</Watch>
                     <Date>{item.time}</Date>
@@ -51,11 +66,23 @@ const BoardContent = ({history}) => {
                     <Comments>{item.comments.length}</Comments>
                   </Block>
                 )
-              })
+              }) : 
+              <SpinContainer>
+                  <Spin indicator={antIcon} />
+              </SpinContainer>
             }
           </Content>
+          <ButtonContainer>
+          <Link to='/board/post'>
+            <Button>글 쓰기</Button>
+          </Link>
+          </ButtonContainer>
           <PaginationContainer>
-            <Pagination defaultCurrent={1} total={state.length} />
+            <Pagination 
+              pageSize={1}  //한 페이지에 몇개가 보일 것인가?
+              onChange={(page) => setPage(page)}
+              defaultCurrent={1} 
+              total={state.length} />
           </PaginationContainer>
         </BoardContents>
       </BoardContainer>

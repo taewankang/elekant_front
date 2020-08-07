@@ -1,6 +1,6 @@
 import React from 'react';
 import BoardContent from '../component/board/BoardContent';
-const Board = ({history}) => {
+const Board = ({history, match, location}) => {
     return (
         <div>
           <BoardContent history={history}/>
@@ -8,4 +8,4 @@ const Board = ({history}) => {
     )
 }
 
-export default Board
+export default Board;

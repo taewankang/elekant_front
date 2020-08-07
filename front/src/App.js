@@ -9,6 +9,8 @@ import Mento from "./page/Mento";
 import Mentee from "./page/Mentee";
 import Board from "./page/Board";
 import MyPage from "./page/MyPage";
+import Post from "./page/Post";
+import BoardDetail from "./page/BoardDetail";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const App = () => {
   const { isLogin } = useSelector((state) => state.user);
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/login" component={Login} /> //로그인 화면
           <Route exact path="/mento" component={Mento} /> //멘토 페이지
           <Route path="/mentee" component={Mentee} /> //멘티 페이지
+          <Route path='/board/post' component={Post} /> //게시판에 새로운 글 쓰기
+          <Route path='/board/detail/:id' component={BoardDetail} />   //게시판 상세 페이지
           <Route path="/board" component={Board} /> //게시판 화면
           <Route path="/mypage" component={MyPage} /> //게시판 화면
         </Switch>
