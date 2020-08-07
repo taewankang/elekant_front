@@ -47,7 +47,7 @@ export const Title = styled.div`
         width: 700px;
         margin-right: 10px;
     }
-    @media only screen and(max-width: ${MY_PAGE_APP_WIDTH}px){
+    @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){
         width: 100%;
         min-width: 100%;
     }
