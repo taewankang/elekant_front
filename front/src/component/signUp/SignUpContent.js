@@ -15,7 +15,6 @@ const SignUpContent = () => {
   const [password, setPw] = useState("");
   const [pw_check, setCheck] = useState("");
   const [mail, setMail] = useState("");
-
   const [status, setStatus] = useState("error");
 
   useEffect(() => {
@@ -54,7 +53,10 @@ const SignUpContent = () => {
                 value={id}
                 onChange={onChange}
               >
-                <Input placeholder="아이디" />
+                <div style={{ display: "flex" }}>
+                  <Input placeholder="아이디" />
+                  <Button>중복 확인</Button>
+                </div>
               </Form.Item>
               <Form.Item
                 name="password"
@@ -93,7 +95,16 @@ const SignUpContent = () => {
                   <Button>확인</Button>
                 </div>
               </Form.Item>
-
+              <Form.Item name="cerification">
+                <Select defaultValue="lucy" style={{ width: 120 }}>
+                  <Option value="jack">Jack</Option>
+                  <Option value="lucy">Lucy</Option>
+                  <Option value="disabled" disabled>
+                    Disabled
+                  </Option>
+                  <Option value="Yiminghe">yiminghe</Option>
+                </Select>
+              </Form.Item>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Form.Item>
                   <Button
