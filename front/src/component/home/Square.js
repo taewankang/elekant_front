@@ -30,17 +30,17 @@ function Square() {
       }}
     >
       <Box style={{ background: "#ffd6f5" }}>
-        <a>
+        <a href="/mentor">
           <InstagramOutlined className="icon" onClick={onClick} />
         </a>
       </Box>
       <Box>
-        <a>
+        <a href="/mentee">
           <YoutubeOutlined className="icon" />
         </a>
       </Box>
       <Box style={{ background: "#c9fff2" }}>
-        <a>
+        <a href="/board">
           <Html5Outlined className="icon" />
         </a>
       </Box>
