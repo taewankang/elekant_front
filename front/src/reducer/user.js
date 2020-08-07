@@ -1,5 +1,5 @@
 const initialState = {
-  isLogin: false, //로그인 여부를 확인
+  isLogin: true, //로그인 여부를 확인
   id: "태완짱짱",
   name: "강태완",
   nickname: "clever",
