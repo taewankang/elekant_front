@@ -11,7 +11,6 @@ const Home = () => {
     <div>
       {/* 메뉴 아래 부분 렌더링 화면 */}
       {isLogin ? <AfterLoginContent /> : <BeforeLoginContent />}
-      홈화면입니다.
     </div>
   );
 };
