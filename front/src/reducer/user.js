@@ -28,7 +28,15 @@ export const user = (state = initialState, action) => {
     case LOGIN_FAILURE:
       return state;
     case LOGOUT_REQUEST:
+      return state;
     case LOGOUT_SUCCESS:
+      return {
+        isLogin: "",
+        id: "",
+        nickname: "",
+        school: "",
+        mail: "" 
+      }
     case LOGOUT_FAILURE:
     default:
       return state;
