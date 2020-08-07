@@ -1,9 +1,10 @@
 import React from 'react';
 import BoardDetailContent from '../component/board/BoardDetail';
-const BoardDetail = () => {
+const BoardDetail = ({match}) => {
+  console.log(match)
   return (
     <div>
-      <BoardDetailContent/>          
+      <BoardDetailContent match={match}/>          
     </div>
   )
 }

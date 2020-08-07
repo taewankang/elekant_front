@@ -16,7 +16,7 @@ export const BoardContents = styled.div`
   margin-top: 80px;
   width: ${BOARD_WIDTH}px;
   min-width: ${BOARD_WIDTH}px;
-  height: 500px;
+  height: 100%;
   color: #000000;
   overflow: auto;
   @media only screen and (max-width: ${BOARD_WIDTH + 20}px){
@@ -130,7 +130,6 @@ export const Input = styled.textarea`
   backgrouond-color: #FFFFFF;
   border: 1px solid ${MY_PAGE_BORDER};
   padding: 10px;
-  align-self: flex-start;
   border-radius: 10px;
   margin-bottom: 20px;
   outline: none;
@@ -141,4 +140,24 @@ export const SpinContainer = styled.div`
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
+`
+
+export const CommentInput = styled.textarea`
+  width: ${BOARD_WIDTH}px;
+  height: 150px;
+  border: 1px solid ${MY_PAGE_BORDER};
+  padding: 10px;
+  outline: none;
+  background-color: #FFFFFF;
+  margin-bottom: 30px;
+`
+
+export const DetailTitle  = styled.div`
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px 50px;
+  font-size: 20px;
+  border-bottom: 1px solid #000000;
 `

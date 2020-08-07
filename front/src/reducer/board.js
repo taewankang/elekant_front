@@ -41,7 +41,20 @@ const initialState = [
           {username: 'han'},
           {contents: '제 생각은요'},
           {time: '2020-08-07 16:00:00'},
-          {like: 0}
+          {like: 0},
+          {
+            reply: {
+              comments:[{
+                contents: [
+                  {id: 1},
+                  {username: 'kang'},
+                  {contents: '나는 또 이렇게 생각해'},
+                  {time: '2020-08-07 16:00:00'},
+                  {reply: {}}
+                ]
+              }]
+            }
+          }
         ]
       },
       {
