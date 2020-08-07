@@ -28,7 +28,7 @@ const index = () => {
               </Link>
             </MenuList>
             <MenuList>
-              <Link to='/board'>
+              <Link to='/board/1'>
                 <MenuButton>board</MenuButton>
               </Link>
             </MenuList>

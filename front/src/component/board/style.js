@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {MY_PAGE_BACKGROUND, MY_PAGE_BORDER} from '../../color';
+import {MY_PAGE_BACKGROUND, MY_PAGE_BORDER, BUTTON_COLOR} from '../../color';
 const BOARD_WIDTH = 800;
 export const BoardContainer = styled.div`
   width: 100%;
@@ -92,4 +92,53 @@ export const Block = styled.div`
 export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
+`
+export const Button = styled.button`
+  background-color: ${BUTTON_COLOR};
+  border: 1px solid ${MY_PAGE_BORDER};
+  color: #FFFFFF;
+  outline: none;
+  width: 80px;
+  height: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  &:hover{
+    background-color: #CC3D3D;    
+  }
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const PostTitle = styled.div`
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0px 50px;
+  font-size: 16px;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+`
+
+export const Input = styled.textarea`
+  margin-top: 30px;
+  width: ${BOARD_WIDTH}px;
+  height: 300px;
+  backgrouond-color: #FFFFFF;
+  border: 1px solid ${MY_PAGE_BORDER};
+  padding: 10px;
+  align-self: flex-start;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  outline: none;
+`
+
+export const SpinContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `

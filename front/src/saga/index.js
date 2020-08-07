@@ -8,6 +8,6 @@ export default function* rootSaga(){
     fork(userSaga),
     // fork(mentoSaga),
     // fork(menteeSaga),
-    // fork(boardSaga)
+    fork(boardSaga)
   ])
 }
