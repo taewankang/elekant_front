@@ -1,9 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-import { TreeSelect, Button } from "antd";
+import styled, { css } from "styled-components";
+import { TreeSelect, Button, Input } from "antd";
 import { BUTTON_COLOR } from "../color";
 import ProfileBox from "../component/Mentor/ProfileBox";
-const HashBox = styled.span``;
+const { Search } = Input;
+const Back = styled.div`
+  width: 100%;
+  height: 100%;
+  background: #e2e1e6;
+`;
 const Bold = styled.span`
   margin-left: 3%;
   & + & {
@@ -27,13 +32,15 @@ const MentorArea = styled.div`
   display: flex;
   width: 90%;
   height: 98%;
-  border: 1px solid gray;
+  border: 1px solid white;
   border-radius: 16px;
+  background: #ffffff;
 `;
 const MenteeBox = styled.div`
   width: 240px;
   height: 100px;
-  border: 1px solid skyblue;
+  background: #ffffff;
+  border: 2px solid white;
   border-radius: 7px;
   & + & {
     margin-left: 5px;
@@ -41,7 +48,7 @@ const MenteeBox = styled.div`
 `;
 const Mento = () => {
   return (
-    <div style={{ marginTop: 30 }}>
+    <Back>
       <Bold>
         <b>나의 멘토</b>
       </Bold>
@@ -51,19 +58,28 @@ const Mento = () => {
 
       <Container>
         <Mymentor>
-          <MentorArea>멘토 영역</MentorArea>
+          <MentorArea></MentorArea>
         </Mymentor>
-        <Mymentor>
-          <TreeSelect
-            placeholder="Please select"
-            dropdownStyle={{ maxHeight: 300, overflow: "auto" }}
-          />
-          <MenteeBox>
-            <ProfileBox />
-          </MenteeBox>
+        <Mymentor style={{ display: "inline" }}>
+          <div>
+            <TreeSelect
+              placeholder="Please select"
+              dropdownStyle={{ maxHeight: 300, overflow: "auto" }}
+            />
+
+            <Search placeholder="search" style={{ width: 400 }} />
+          </div>
+          <div style={{ display: "flex" }}>
+            <MenteeBox>
+              <ProfileBox />
+            </MenteeBox>
+            <MenteeBox>
+              <ProfileBox />
+            </MenteeBox>
+          </div>
         </Mymentor>
       </Container>
-    </div>
+    </Back>
   );
 };
 
