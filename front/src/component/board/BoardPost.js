@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {REQUEST_NEW_POST} from '../../reducer/board';
 import {
-  BoardContainer, BoardContents, Title,
+  Container, Contents, Title,
   PostTitle, Input, ButtonContainer, Button,
 } from './style';
 
@@ -23,8 +23,8 @@ const BoardPost = () => {
   }
 
   return (
-    <BoardContainer>
-      <BoardContents>
+    <Container>
+      <Contents>
         <Title>새로운 글 쓰기</Title>
         <PostTitle>
           <span style={{fontWeight: '700'}}>내용</span>
@@ -36,8 +36,8 @@ const BoardPost = () => {
             <Button onClick={onClick}>작성 완료</Button>
           </Link>
         </ButtonContainer>
-      </BoardContents>
-    </BoardContainer>
+      </Contents>
+    </Container>
   )
 }
 

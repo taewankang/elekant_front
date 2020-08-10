@@ -45,6 +45,8 @@ export const MenuButton = styled.button`
   min-width: 75px;
   font-weight: bold;
   border-radius: 7px;
+  outline: none;
+  cursor: pointer;
 `
 
 export const AppBar = styled.div`

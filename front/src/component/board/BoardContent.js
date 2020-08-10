@@ -7,7 +7,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 import 'antd/dist/antd.css';
 import {
-  BoardContainer, BoardContents, Title, 
+  Container, Contents, Title, 
   BoardTitle, Id, Description, Watch,
   Date, Writer, Content, Comments,
   Block, PaginationContainer, Button,
@@ -37,8 +37,8 @@ const BoardContent = ({history}) => {
 
   if(isLogin === true){
     return (
-      <BoardContainer>
-        <BoardContents>
+      <Container>
+        <Contents>
           <Title>게시판</Title>
           <BoardTitle>
             <Id>번호</Id>
@@ -84,8 +84,8 @@ const BoardContent = ({history}) => {
               defaultCurrent={1} 
               total={state.length} />
           </PaginationContainer>
-        </BoardContents>
-      </BoardContainer>
+        </Contents>
+      </Container>
     )
   } else {return <div></div>}
 }

@@ -1,9 +1,9 @@
 import React from 'react';
-
+import MenteeContainer from '../component/mentee/MenteeContainer';
 const Mentee = () => {
     return (
         <div>
-          멘티 페이지
+          <MenteeContainer/>
         </div>
     )
 }

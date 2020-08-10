@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {MY_PAGE_BACKGROUND, MY_PAGE_BORDER, BUTTON_COLOR} from '../../color';
 const BOARD_WIDTH = 800;
-export const BoardContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   background-color: ${MY_PAGE_BACKGROUND};
   height: 100vh;
@@ -12,7 +12,7 @@ export const BoardContainer = styled.div`
   }
 `
 
-export const BoardContents = styled.div`
+export const Contents = styled.div`
   margin-top: 80px;
   width: ${BOARD_WIDTH}px;
   min-width: ${BOARD_WIDTH}px;

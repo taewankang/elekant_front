@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BoardContainer, BoardContents, Title, DetailTitle,
+  Container, Contents, Title, DetailTitle,
   Input, CommentInput, ButtonContainer, Button} from './style';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -10,8 +10,8 @@ const BoardDetail = ({match}) => {
   const {nickname} = useSelector(state => state.user);
 
   return (
-    <BoardContainer>
-      <BoardContents>
+    <Container>
+      <Contents>
         <DetailTitle>
           <span style={{fontWeight: '700'}}>{title}</span>
           <span style={{fontSize: '12px', alignSelf: 'center'}}>작성자: {nickname}</span>
@@ -25,8 +25,8 @@ const BoardDetail = ({match}) => {
             <Button>목록</Button>
           </Link>
         </ButtonContainer>
-      </BoardContents>
-    </BoardContainer>
+      </Contents>
+    </Container>
   )
 }
 
