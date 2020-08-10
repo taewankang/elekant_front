@@ -84,24 +84,16 @@ const SignUpContent = () => {
               <Form.Item name="mail" value={mail}>
                 <div style={{ display: "flex" }}>
                   <Input placeholder="mail" />
-                  <Button>메일인증</Button>
+                  <Button onClick={() => console.log("메일인증")}>
+                    메일인증
+                  </Button>
                 </div>
               </Form.Item>
+
               <Form.Item name="cerification">
-                <div style={{ display: "flex" }}>
-                  <Col span={7}>
-                    <Input placeholder="인증번호" />
-                  </Col>
-                  <Button>확인</Button>
-                </div>
-              </Form.Item>
-              <Form.Item name="cerification">
-                <Select defaultValue="lucy" style={{ width: 120 }}>
+                <Select defaultValue="" style={{ width: 400 }}>
                   <Option value="jack">Jack</Option>
                   <Option value="lucy">Lucy</Option>
-                  <Option value="disabled" disabled>
-                    Disabled
-                  </Option>
                   <Option value="Yiminghe">yiminghe</Option>
                 </Select>
               </Form.Item>
