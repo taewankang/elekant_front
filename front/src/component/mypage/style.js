@@ -1,13 +1,32 @@
 import {MY_PAGE_BORDER, BUTTON_COLOR} from '../../color';
 import styled from 'styled-components';
+import {MY_PAGE_APP_WIDTH} from '../../constant';
+export const Container = styled.div`
+    height: 400px;
+    @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){
+        width: 100%;
+    }
+    @media only screen and (min-width: ${MY_PAGE_APP_WIDTH}px){
+        width: 700px;
+        margin-right: 10px;
+    }    
+`
+
 export const Block = styled.div`
-    width: 700px;
     height: 70px;
     padding: 20px;
     display: flex;
     background-color: #FFFFFF;
     color: #000000;
     border: 1px solid ${MY_PAGE_BORDER};
+    @media only screen and (min-width: ${MY_PAGE_APP_WIDTH}px){
+        width: 700px;
+        margin-right: 10px;
+    }
+    @media only screen and(max-width: ${MY_PAGE_APP_WIDTH}px){
+        width: 100%;
+        min-width: 100%;        
+    }
 `
 
 export const Bold = styled.div`
@@ -18,13 +37,21 @@ export const Bold = styled.div`
 export const Title = styled.div`
     font-weight: 900;
     font-size: 20px;
-    width: 700px;
     height: 70px;
     padding: 20px;
     display: flex;
     background-color: #FFFFFF;
     color: #000000;
     border: 1px solid ${MY_PAGE_BORDER};
+    @media only screen and (min-width: ${MY_PAGE_APP_WIDTH}px){
+        width: 700px;
+        margin-right: 10px;
+    }
+    @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){
+        width: 100%;
+        min-width: 100%;
+    }
+
 `
 
 export const Input = styled.input`

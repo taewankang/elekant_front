@@ -1,7 +1,7 @@
 //마이 페이지 - 좌측 메뉴
 import React, {useEffect} from 'react';
 import styled from 'styled-components';
-import {MY_PAGE_BORDER, MY_PAGE_BUTTON} from '../../color';
+import {MY_PAGE_BORDER, MY_PAGE_BACKGROUND} from '../../color';
 const Block = styled.div`
   width: 200px;
   height: 80px;
@@ -16,7 +16,7 @@ const Block = styled.div`
 `
 const Button = styled.button`
   width: 200px;
-  height: 70px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
@@ -24,27 +24,30 @@ const Button = styled.button`
   border: 1px solid ${MY_PAGE_BORDER};
   align-items: center;
   font-size: 15px;
-  &:hover{background-color: ${MY_PAGE_BUTTON};}
+  &:hover{background-color: ${MY_PAGE_BACKGROUND};}
   &:focus{outline: 0;}
 `
 
 const ClickButton = styled.button`
   width: 200px;
-  height: 70px;
+  height: 50px;
   display: flex;
   flex-direction: column;
-  background-color: ${MY_PAGE_BUTTON};
+  background-color: ${MY_PAGE_BACKGROUND};
   justify-content: center;
   border: 1px solid ${MY_PAGE_BORDER};
   align-items: center;
   font-size: 15px;
   color: #000000;
-  &:hover{background-color: ${MY_PAGE_BUTTON}
+  &:hover{background-color: ${MY_PAGE_BACKGROUND}
   &:focus{outline: 0;}
 `
 
 const MenuContainer=styled.div`
   margin-right: 100px;
+  margin-left: 10px;
+  width: 200px;
+  min-width: 200px;
 `
 
 const Menu = ({menuIdx, setMenuIdx}) => {

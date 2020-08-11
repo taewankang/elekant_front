@@ -1,11 +1,11 @@
 import React from 'react';
-
-const Board = () => {
+import BoardContent from '../component/board/BoardContent';
+const Board = ({history, match, location}) => {
     return (
         <div>
-          게시판 페이지
+          <BoardContent history={history}/>
         </div>
     )
 }
 
-export default Board
+export default Board;

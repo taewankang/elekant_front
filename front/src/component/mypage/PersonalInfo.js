@@ -1,17 +1,11 @@
 //마이 페이지 - 개인 정보 변경
 import React, {useState, useEffect, useCallback} from 'react';
 import styled from 'styled-components';
-import {Block, Bold, Title, Input, CompleteButton, ButtonContainer} from './style';
+import {Container, Block, Bold, Title, Input, CompleteButton, ButtonContainer} from './style';
 import {useSelector} from 'react-redux';
 import {PlusCircleOutlined} from '@ant-design/icons'
 import {BUTTON_COLOR} from '../../color';
 import 'antd/dist/antd.css';
-
-const PersonContainer = styled.div`
-    width: 700px;
-    height: 400px;
-`
-
 const NameException = styled.span`
     color: ${BUTTON_COLOR};
     font-size: 12px;
@@ -21,7 +15,7 @@ const NameException = styled.span`
 `
 
 const PersonalInfo = () => {
-    const {name, nickname, school} = useSelector(state => state.reducer);
+    const {name, nickname, school} = useSelector(state => state.user);
     const [username, setName] = useState('');                       //이름
     const [userNick, setNickname] = useState('');                   //닉네임
     const [checkName, setCheckName] = useState(false);
@@ -50,7 +44,7 @@ const PersonalInfo = () => {
     }, [])
 
     return (
-        <PersonContainer>
+        <Container>
             <Title>개인정보 변경</Title>
             <form onSubmit={onSubmit}>
                 <Block>
@@ -76,7 +70,7 @@ const PersonalInfo = () => {
                     <CompleteButton>수정 완료</CompleteButton>
                 </ButtonContainer>
             </form>
-        </PersonContainer>
+        </Container>
     )
 }
 
