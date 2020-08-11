@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {MY_PAGE_BACKGROUND, MY_PAGE_BORDER, BUTTON_COLOR} from '../../color';
+import {Input, Button} from 'antd';
 const BOARD_WIDTH = 800;
+const { Search } = Input;
 
 export const Title = styled.div`
   font-size: 20px;
@@ -15,6 +17,7 @@ export const Content = styled.div`
   height: 300px;
   border-radius: 10px;
   overflow-y: auto;
+  border: 1px solid ${MY_PAGE_BORDER};
 `
 
 export const ContentTitle = styled.div`
@@ -56,7 +59,7 @@ export const ListContainer = styled.div`
   width: 100%;
   height: 50px;
   font-size: 14px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid ${MY_PAGE_BORDER};
   align-items: center;
   color: #000000;
 `
@@ -86,6 +89,26 @@ export const ConversationButton = styled.button`
   cursor: pointer;
 `
 
-export const RecommendContainer = styled.div`
+export const FilterContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  margin-top: 30px;
+`
 
+export const RecommendContainer = styled.div`
+  width: 100%;
+  background-color: ${MY_PAGE_BACKGROUND};
+`
+
+export const SearchInput = styled(Search)`
+  width: 300px;
+`
+
+export const FilterButton = styled(Button)`
+  width: 300px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  display: flex;
 `
