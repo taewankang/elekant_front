@@ -1,11 +1,11 @@
 const initialState = {
-  isLogin: true, //로그인 여부를 확인
+  isLogin: false, //로그인 여부를 확인
   id: "태완짱짱",
   name: "강태완",
   nickname: "clever",
   school: "seoul national univ",
-  mail: "abcde@naver.com" 
-}
+  mail: "abcde@naver.com",
+};
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -24,7 +24,7 @@ export const user = (state = initialState, action) => {
         ...state,
         isLogin: true,
         name: action.data.username,
-      }
+      };
     case LOGIN_FAILURE:
       return state;
     case LOGOUT_REQUEST:
@@ -34,4 +34,3 @@ export const user = (state = initialState, action) => {
       return state;
   }
 };
-
