@@ -6,25 +6,20 @@ import {useSelector} from 'react-redux';
 
 const NormalInfo = () => {
     const {id, name, nickname, school, mail} = useSelector(state => state.user);
-
+    const titleList = ['아이디', '이름', '닉네임', '학교', '학교 메일'];
+    const infoList = [id, name, nickname, school, mail];
     return (
         <Container>
             <Title>기본 정보</Title>
-            <Block>
-                <Bold>아이디</Bold> {id}
-            </Block>
-            <Block>
-                <Bold>이름</Bold> {name}
-            </Block>
-            <Block>
-                <Bold>닉네임</Bold> {nickname}
-            </Block>
-            <Block>
-                <Bold>학교</Bold> {school}
-            </Block>
-            <Block>
-                <Bold>학교 메일</Bold> {mail}
-            </Block>
+            {
+                infoList.map((item, idx) => {
+                    return (
+                        <Block key={idx}>
+                            <Bold>{titleList[idx]}</Bold> {item}
+                        </Block>
+                    )
+                })
+            }
         </Container>
     )
 }

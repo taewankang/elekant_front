@@ -3,9 +3,9 @@ import {MY_PAGE_BACKGROUND, MY_PAGE_BORDER, BUTTON_COLOR} from '../../color';
 const BOARD_WIDTH = 800;
 export const Container = styled.div`
   width: 100%;
+  overflow-y: auto;
   background-color: ${MY_PAGE_BACKGROUND};
   height: 100vh;
-  overflow: auto;
   @media only screen and (min-width: ${BOARD_WIDTH + 1}px){
     display: flex;
     justify-content: center;
@@ -13,12 +13,10 @@ export const Container = styled.div`
 `
 
 export const Contents = styled.div`
-  margin-top: 80px;
   width: ${BOARD_WIDTH}px;
   min-width: ${BOARD_WIDTH}px;
   height: 100%;
   color: #000000;
-  overflow: auto;
   @media only screen and (max-width: ${BOARD_WIDTH + 20}px){
     padding: 0px 10px;
     width: ${BOARD_WIDTH + 20}px;
@@ -26,6 +24,7 @@ export const Contents = styled.div`
 `
 
 export const Title = styled.div`
+  margin-top: 100px;
   font-size: 20px;
   font-weight: 900;
   margin-left: 30px;
@@ -125,6 +124,7 @@ export const PostTitle = styled.div`
 
 export const Input = styled.textarea`
   margin-top: 30px;
+  resize: none;
   width: ${BOARD_WIDTH}px;
   height: 300px;
   backgrouond-color: #FFFFFF;
@@ -153,11 +153,15 @@ export const CommentInput = styled.textarea`
 `
 
 export const DetailTitle  = styled.div`
+  margin-top: 100px;
   display: flex;
-  margin-top: 30px;
   width: 100%;
   justify-content: space-between;
   padding: 0px 50px;
   font-size: 20px;
   border-bottom: 1px solid #000000;
+`
+
+export const CommentList = styled.div`
+
 `

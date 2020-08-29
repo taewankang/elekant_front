@@ -1,14 +1,19 @@
 import { all, fork, put, takeEvery } from "redux-saga/effects"
 import {
-  REQUEST_BOARD_DATA, BOARD_DATA_SUCCESS, BOARD_DATA_FAILURE,
-  REQUEST_COMMENT_POST, COMMENT_POST_SUCCESS, COMMENT_POST_FAILURE,
-  REQUEST_NEW_POST, NEW_POST_SUCCESS, NEW_POST_FAILURE,
-  REQUEST_ADD_COMMENT, ADD_COMMENT_SUCCESS, ADD_COMMENT_FAILURE
+  BOARD_DATA_REQUEST, BOARD_DATA_SUCCESS, BOARD_DATA_FAILURE,
+  COMMENT_POST_REQUEST, COMMENT_POST_SUCCESS, COMMENT_POST_FAILURE,
+  NEW_POST_REQUEST, NEW_POST_SUCCESS, NEW_POST_FAILURE,
+  ADD_COMMENT_REQUEST, ADD_COMMENT_SUCCESS, ADD_COMMENT_FAILURE
 } from '../reducer/board';
 
 //게시판 정보를 불러오는 함수
+async function boardDataAPI(){
+
+}
+
 function* boardData(action){
   try{
+    yield boardDataAPI();
     yield put({
       type: BOARD_DATA_SUCCESS,
       data: action.data
@@ -20,32 +25,43 @@ function* boardData(action){
   }
 }
 
-function* boardDataRequest() {  //게시판 정보 호출 함수
-  yield takeEvery(REQUEST_BOARD_DATA, boardData);
+function* boardDataRequest() {  
+  yield takeEvery(BOARD_DATA_REQUEST, boardData);
 }
 
 
-//댓글 내용 요청주는 함수
+//게시판 댓글(BoardDetail)
+async function commentPostAPI(){
+
+}
+
 function* commentPost(action){
   try{
+    // yield commentPostAPI();
     yield put({
       type: COMMENT_POST_SUCCESS,
       data: action.data
     })
-  } catch {
+  } catch(e) {
+    console.log(e)
     yield put({
       type: COMMENT_POST_FAILURE
     })
   }
 }
 
-function* addNewCommentRequest(){  //게시판 댓글 불러오기
-  yield takeEvery(REQUEST_COMMENT_POST, commentPost)
+function* addNewCommentRequest(){  
+  yield takeEvery(COMMENT_POST_REQUEST, commentPost)
+}
+
+/* 새로운 글 등록 */
+async function addPostAPI(){
+
 }
 
 function* addPost(action){
-  console.log(action.data);
   try{
+    yield addPostAPI();
     yield put({
       type: NEW_POST_SUCCESS,
       data: action.data
@@ -57,8 +73,8 @@ function* addPost(action){
   }
 }
 
-function* addNewPost() {  //새로운 게시글 등록
-  yield takeEvery(REQUEST_NEW_POST, addPost);
+function* addNewPost() { 
+  yield takeEvery(NEW_POST_REQUEST, addPost);
 }
 
 export default function* boardSaga(){

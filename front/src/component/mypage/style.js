@@ -1,6 +1,7 @@
-import {MY_PAGE_BORDER, BUTTON_COLOR} from '../../color';
+import {MY_PAGE_BORDER, BUTTON_COLOR, MY_PAGE_BACKGROUND} from '../../color';
 import styled from 'styled-components';
 import {MY_PAGE_APP_WIDTH} from '../../constant';
+
 export const Container = styled.div`
     height: 400px;
     @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px){
@@ -79,4 +80,11 @@ export const CompleteButton = styled.button`
     outline: none;
     cursor: pointer;
     border: 1px solid ${BUTTON_COLOR};
+`
+
+export const MenuContainer=styled.div`
+  margin-right: 100px;
+  margin-left: 10px;
+  width: 200px;
+  min-width: 200px;
 `

@@ -10,4 +10,5 @@ const rootreducer = combineReducers({
   mentee,
   board,
 });
+
 export default rootreducer;

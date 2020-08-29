@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { TreeSelect, Button, Input } from "antd";
 import { BUTTON_COLOR } from "../color";
-import ProfileBox from "../component/Mentor/ProfileBox";
+import ProfileBox from "../component/mentor/ProfileBox";
 const { Search } = Input;
 const Back = styled.div`
   width: 100%;

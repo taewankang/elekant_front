@@ -3,7 +3,7 @@ import React, {useCallback} from 'react';
 import styled from 'styled-components';
 import {Container, Title, Block, CompleteButton} from './style';
 import {useSelector, useDispatch} from 'react-redux';
-
+import {LOGOUT_REQUEST} from '../../reducer/user';
 const ButtonContainer = styled.div`
     margin-top: 50px;
     display: flex;
@@ -16,6 +16,9 @@ const Logout = ({history}) => {
     const dispatch = useDispatch();
     const logoutClick = useCallback(() => {
         //dispatch를 이용해서 reducer에 있는 사용자 관련 기록들 지워주는 작업이 필요
+        dispatch({
+            type: LOGOUT_REQUEST
+        })
         history.push('/');
     })
 

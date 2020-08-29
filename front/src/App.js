@@ -15,7 +15,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const App = () => {
   const { isLogin } = useSelector((state) => state.user);
   return (
-    <div>
+    <div style={{overflowY: 'hidden'}}>
       <Router>
         {isLogin ? <AfterLogin /> : <BeforeLogin />}
         <Switch>

@@ -1,8 +1,9 @@
+//게시판 메인 화면
 import React, {useEffect, useState, useCallback} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import { Pagination } from 'antd';
-import {REQUEST_BOARD_DATA} from '../../reducer/board';
+import {BOARD_DATA_REQUEST} from '../../reducer/board';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 import 'antd/dist/antd.css';
@@ -20,15 +21,16 @@ const BoardContent = ({history}) => {
   const {isLogin} = useSelector(state => state.user);
   const state = useSelector(state => state.board);
   const [page, setPage] = useState(1);    //게시판 페이지
-  useEffect(() => { //로그인 안 했을 때 들어오는 것 방지
-    if(!isLogin) {
+  useEffect(useCallback(() => { 
+    if(!isLogin) {  //로그인 안 했을 때 들어오는 것 방지
       alert('로그인이 필요합니다.');
       history.push('/');
     } 
-    dispatch({type: REQUEST_BOARD_DATA})    //서버에서 게시판 목록 불러오기
-  }, [])
+    dispatch({type: BOARD_DATA_REQUEST})    //서버에서 게시판 목록 불러오기
+  }), [])
 
   useEffect(useCallback(() => {
+    isLogin &&
     history.push({
       pathname: '/board',
       search: `?page=${page}`

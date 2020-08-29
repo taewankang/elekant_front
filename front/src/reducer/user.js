@@ -1,5 +1,3 @@
-import MenteeContainer from "../component/mentee/MenteeContainer";
-
 const initialState = {
   isLogin: true, //로그인 여부를 확인
   state: "mentor", //나는 멘티인가 멘토인가
@@ -85,6 +83,18 @@ export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
+export const SIGN_UP_REQUEST = "SIGN_UP_REQUEST";
+export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
+export const SIGN_UP_FAILURE = "SIGN_UP_FALURE";
+
+export const CHANGE_USERINFO_REQUEST = 'CHANGE_USERINFO_REQUEST';
+export const CHANGE_USERINFO_SUCCESS = 'CHANGE_USERINFO_SUCCESS';
+export const CHANGE_USERINFO_FAILURE = 'CHANGE_USERINFO_FAILURE';
+
+export const WITHDRAWAL_REQUEST = 'WITHDRAWAL_REQUEST';
+export const WITHDRAWAL_SUCCESS = 'WITHDRAWAL_SUCCESS';
+export const WITHDRAWAL_FAILURE = 'WITHDRAWAL_FAILURE';
+
 export const user = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
@@ -97,6 +107,7 @@ export const user = (state = initialState, action) => {
       };
     case LOGIN_FAILURE:
       return state;
+
     case LOGOUT_REQUEST:
       return state;
     case LOGOUT_SUCCESS:
@@ -108,6 +119,28 @@ export const user = (state = initialState, action) => {
         mail: "",
       };
     case LOGOUT_FAILURE:
+      return state;
+
+    case SIGN_UP_REQUEST:
+      return state;
+    case SIGN_UP_SUCCESS:
+      return state;
+    case SIGN_UP_FAILURE:
+      return state;
+
+    case CHANGE_USERINFO_REQUEST:
+      return state;
+    case CHANGE_USERINFO_SUCCESS:
+      return state;
+    case CHANGE_USERINFO_FAILURE:
+      return state;
+
+    case WITHDRAWAL_REQUEST:
+      return state;
+    case WITHDRAWAL_SUCCESS:
+      return state;
+    case WITHDRAWAL_FAILURE:
+      return state;
     default:
       return state;
   }

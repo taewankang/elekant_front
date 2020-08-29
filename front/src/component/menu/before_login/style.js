@@ -4,6 +4,7 @@ import {TOP_MENU_COLOR} from '../../../color'
 
 export const Menu = styled.div`
   width: 100%;
+  position: fixed;
   height: 55px;
   background-color: ${TOP_MENU_COLOR};
   color: #FFFFFF;

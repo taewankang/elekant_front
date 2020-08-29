@@ -9,7 +9,6 @@ const LoginContent = ({history}) => {
   const dispatch = useDispatch();
   
   const onFinish = useCallback(values => {    //values에 아이디, 비밀번호 값이 다 저장되어 있음
-    console.log('Success:', values);
     dispatch({
       type: LOGIN_REQUEST,
       data: values,

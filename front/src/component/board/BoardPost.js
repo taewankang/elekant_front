@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+//새로운 글 작성
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {REQUEST_NEW_POST} from '../../reducer/board';
+import {NEW_POST_REQUEST} from '../../reducer/board';
 import {
   Container, Contents, Title,
   PostTitle, Input, ButtonContainer, Button,
@@ -11,13 +12,18 @@ const BoardPost = () => {
   const {nickname} = useSelector(state => state.user);
   const dispatch = useDispatch();
   const [content, setContent] = useState('');
+
+  useEffect(() => {
+
+  }, []);
+
   const onChange = (e) => {
     setContent(e.target.value);
   }
   
   const onClick = () => {
     dispatch({
-      type: REQUEST_NEW_POST,
+      type: NEW_POST_REQUEST,
       data: content,
     })
   }
