@@ -15,6 +15,7 @@ export const Container = styled.div`
 export const Contents = styled.div`
   width: ${BOARD_WIDTH}px;
   min-width: ${BOARD_WIDTH}px;
+  margin-top: 50px;
   height: 100%;
   color: #000000;
   @media only screen and (max-width: ${BOARD_WIDTH + 20}px){
@@ -123,7 +124,7 @@ export const PostTitle = styled.div`
 `
 
 export const Input = styled.textarea`
-  margin-top: 30px;
+  margin-top: 10px;
   resize: none;
   width: ${BOARD_WIDTH}px;
   height: 300px;
@@ -153,9 +154,9 @@ export const CommentInput = styled.textarea`
 `
 
 export const DetailTitle  = styled.div`
-  margin-top: 100px;
   display: flex;
   width: 100%;
+  margin-top: 80px;
   justify-content: space-between;
   padding: 0px 50px;
   font-size: 20px;
@@ -164,4 +165,25 @@ export const DetailTitle  = styled.div`
 
 export const CommentList = styled.div`
 
+`
+
+export const TitleInput = styled.input`
+  width: 100%;
+  height: 30px;
+  margin: 15px 0px;
+  border: 0px;
+  border-bottom: 1px solid #000;
+  outline: none;
+  background: ${MY_PAGE_BACKGROUND};
+`
+
+export const TitleContainer = styled.div`
+  display: flex;
+`
+
+export const TitleSpan = styled.span`
+  width: 50px;
+  display: flex;
+  align-items: center;
+  font-weight: 900;
 `

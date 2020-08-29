@@ -9,7 +9,6 @@ import {
 
 const MentorList = () => {
   const {mentor} = useSelector(state => state.user);
-  console.log(mentor)
   return (
     <div>
       {   

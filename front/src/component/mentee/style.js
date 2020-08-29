@@ -8,6 +8,7 @@ export const Title = styled.div`
   font-size: 20px;
   font-weight: 900;
   margin-left: 10px;
+  
 `
 
 export const Content = styled.div`

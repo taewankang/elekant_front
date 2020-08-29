@@ -93,6 +93,7 @@ export const ADD_COMMENT_FAILURE = 'ADD_COMMENT_FAILURE';
 //좀 더 생각해보기
 
 export const board = (state = initialState, action) => {
+  console.log(action.data)
   switch(action.type){
     case BOARD_DATA_REQUEST:
       return state;
@@ -119,9 +120,10 @@ export const board = (state = initialState, action) => {
       return {...state};
     case COMMENT_POST_FAILURE:
       return state;
-    case NEW_POST_REQUEST:
+    case NEW_POST_REQUEST:    //새로운 댓글 달기
       return state;
     case NEW_POST_SUCCESS:
+      
       return state;
     case NEW_POST_FAILURE:
       return state;
