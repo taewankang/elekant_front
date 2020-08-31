@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {Menu, MenuContainer, MenuList, MenuButton} from '../before_login/style';
 import {UserInfo} from './style';
-import {useSelector} from 'react-redux';
 
 const index = () => {
     return (
@@ -18,7 +17,7 @@ const index = () => {
           </AppMenu> */}
           <UserInfo>
             <MenuList>
-            <Link to='/mento'>
+            <Link to='/mentor'>
               <MenuButton>Mento</MenuButton>
             </Link>
             </MenuList>

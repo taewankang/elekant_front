@@ -13,7 +13,7 @@ const initialState = [
         contents: '제 생각은요',  //댓글 내용
         time: '2020-08-07 16:00:00',  //댓글 쓴 시간
         like: 0,    //좋아요
-        reply: []
+        comments: []
       },
       {
         id: 2,
@@ -21,31 +21,41 @@ const initialState = [
         contents: '제 생각도요',
         time: '2020-08-07 14:00:00',
         like: 0,
-        reply: [],
+        comments: [],
       }
     ],
   },
   {
     id: 2,
-    title: '제목 2',
-    contents: '나 지금 뭐해야 하나요',
+    contents: '깊이1',
     watch: 0,
     writer: '상하',
+    title: '제목2',
     time: '2020-08-06 14:00:00',
     comments: [
       {
         id: 1,
         writer: 'han',
-        contents: '제 생각은요',
+        contents: '깊이2',
         time: '2020-08-07 16:00:00',
         like: 0,
-        reply: [
+        comments: [
           {
             id: 1,
             writer: 'kang',
-            contents: '나는 또 이렇게 생각해',
+            contents: '깊이3',
             time: '2020-08-07 16:00:00',
-            reply: []
+            like: 10,
+            comments: [
+              {
+                id: 1,
+                writer: 'kang',
+                contents: '깊이4',
+                time: '2020-08-07 16:00:00',
+                like: 10,
+                comments: []
+              }
+            ]
           }
         ]
       },
@@ -55,7 +65,7 @@ const initialState = [
         contents: '제 생각도요',
         time: '2020-08-07 14:00:00',
         like: 0,
-        reply: [
+        comments: [
 
         ]
       }
@@ -93,7 +103,6 @@ export const ADD_COMMENT_FAILURE = 'ADD_COMMENT_FAILURE';
 //좀 더 생각해보기
 
 export const board = (state = initialState, action) => {
-  console.log(action.data)
   switch(action.type){
     case BOARD_DATA_REQUEST:
       return state;
@@ -105,19 +114,8 @@ export const board = (state = initialState, action) => {
     case COMMENT_POST_REQUEST:
       return state;
     case COMMENT_POST_SUCCESS:
-      const idx = action.data.id
-      state[idx - 1].comments = [   //댓글 달기 기능인데 서버랑 연결하면 지울 듯
-        ...state[idx - 1].comments,
-        {
-          id: state[idx - 1].comments.length + 1,
-          writer: action.data.nickname,
-          contents: action.data.content,
-          time: '2020.08.29 20:03',
-          like: 0,
-          reply: [],
-        }
-      ]
-      return {...state};
+      state = commentPost(state, action);
+      return state;
     case COMMENT_POST_FAILURE:
       return state;
     case NEW_POST_REQUEST:    //새로운 댓글 달기
@@ -135,4 +133,21 @@ export const board = (state = initialState, action) => {
     default:
       return state;
   }
+}
+
+function commentPost(state, action) {
+  const idx = action.data.id
+  state[idx - 1].comments = [   //댓글 달기 기능인데 서버랑 연결하면 지울 듯
+    ...state[idx - 1].comments,
+    {
+      id: state[idx - 1].comments.length + 1,
+      writer: action.data.nickname,
+      contents: action.data.content,
+      time: '2020.08.29 20:03',
+      like: 0,
+      comments: [],
+    }
+  ]
+  console.log(state);
+  return state;
 }

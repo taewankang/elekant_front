@@ -7,6 +7,7 @@ import {useSelector} from 'react-redux';
 import RecommendMentee from './RecommendMentee';
 const MenteeContainer = () => {
   const {state} = useSelector(state => state.user);
+
   return (
     <Container>
       <Contents>

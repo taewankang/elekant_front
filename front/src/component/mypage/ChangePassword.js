@@ -1,6 +1,10 @@
 //마이 페이지 - 비밀번호 변경
 import React, {useState, useEffect, useCallback} from 'react';
-import {Container, Block, Bold, Input, Title, CompleteButton, ButtonContainer} from './style';
+import {
+    Container, Block, Bold, 
+    Input, Title, CompleteButton, 
+    ButtonContainer
+} from './style';
 import styled from 'styled-components';
 import {BUTTON_COLOR} from '../../color';
 

@@ -1,7 +1,7 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import {LoginContainer, LoginContents, Title, InputContainer} from './style';
 import { Form, Input, Button } from 'antd';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import 'antd/dist/antd.css';
 import {BUTTON_COLOR} from '../../color';
 import {LOGIN_REQUEST} from '../../reducer/user';

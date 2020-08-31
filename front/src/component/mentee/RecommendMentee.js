@@ -1,11 +1,13 @@
 import React from 'react';
 import {
   RecommendContainer, Title, FilterContainer,
-  SearchInput, FilterButton, 
+  SearchInput, FilterButton, MenteeContainer,
 } from './style';
 import 'antd/dist/antd.css';
 import { Menu, Dropdown, message, } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import MenteeBox from './MenteeBox';
+import { useSelector } from 'react-redux';
 
 function handleMenuClick(e) {
   message.info('Click on menu item.');
@@ -20,6 +22,7 @@ const menu = (
 );
 
 const RecommendMentee = () => {
+  const state = useSelector(state => state.mentee);
   return (
     <RecommendContainer>
       <Title style={{marginTop: '40px'}}>추천 멘토</Title>
@@ -29,7 +32,19 @@ const RecommendMentee = () => {
         </Dropdown>
       <SearchInput placeholder="검색" />
       </FilterContainer>
-
+      <MenteeContainer>
+        {
+          state.map((item, idx) => {
+            return (
+              <MenteeBox 
+                key={idx}
+                username={item.username}
+                sentence={item.sentence}
+                subject={item.subject}/>
+            )
+          })
+        }
+      </MenteeContainer>
     </RecommendContainer>
   )
 }

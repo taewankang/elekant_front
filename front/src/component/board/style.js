@@ -163,10 +163,6 @@ export const DetailTitle  = styled.div`
   border-bottom: 1px solid #000000;
 `
 
-export const CommentList = styled.div`
-
-`
-
 export const TitleInput = styled.input`
   width: 100%;
   height: 30px;
@@ -186,4 +182,41 @@ export const TitleSpan = styled.span`
   display: flex;
   align-items: center;
   font-weight: 900;
+`
+
+export const CommentContainer = styled.div`
+  text-indent: ${props => props.margin}px;
+`
+
+export const CommentList = styled.div`
+  width: 100%;
+`
+
+export const CommentWriter = styled.div`
+  font-weight: 900;
+  font-size: 15px;
+`
+
+export const CommentContents = styled.div`
+  height: 100%;
+`
+
+export const CommentLike = styled.span`
+  cursor: pointer;
+  &:hover {color: skyblue;}
+`
+
+export const CommentReply = styled.span`
+  margin-right: 20px;
+`
+
+export const CommentTextarea = styled.textarea`
+  width: 100%;
+  resize: none;
+  height: 50px;
+  overflow-y: auto;
+`
+
+export const CommentBlock = styled.div`
+  margin-bottom: 100px;ß
 `

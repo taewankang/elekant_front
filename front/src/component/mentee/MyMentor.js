@@ -7,32 +7,6 @@ import {
   ConversationButton
 } from './style';
 
-const MentorList = () => {
-  const {mentor} = useSelector(state => state.user);
-  return (
-    <div>
-      {   
-        mentor.map(item => {
-          console.log(item)
-          return (
-            <ListContainer key={item.id}>
-              <Nickname>{item.nickname}</Nickname>
-              <Sentence>{item.sentence}</Sentence>
-              <Notification>
-                { item.newMessage && <MessageButton>new</MessageButton> }
-              </Notification>
-              <Conversation>
-                <ConversationButton>바로 가기</ConversationButton>
-              </Conversation>
-            </ListContainer>
-          )
-        }
-        )   
-      }
-    </div>
-  )
-}
-
 const MyMentor = () => {
   const {state} = useSelector(state => state.user);
 
@@ -48,6 +22,31 @@ const MyMentor = () => {
         </ContentTitle>
         <MentorList />
       </Content>
+    </div>
+  )
+}
+
+const MentorList = () => {
+  const {mentor} = useSelector(state => state.user);
+  return (
+    <div>
+      {   
+        mentor.map(item => {
+          return (
+            <ListContainer key={item.id}>
+              <Nickname>{item.nickname}</Nickname>
+              <Sentence>{item.sentence}</Sentence>
+              <Notification>
+                { item.newMessage && <MessageButton>new</MessageButton> }
+              </Notification>
+              <Conversation>
+                <ConversationButton>바로 가기</ConversationButton>
+              </Conversation>
+            </ListContainer>
+          )
+        }
+        )   
+      }
     </div>
   )
 }

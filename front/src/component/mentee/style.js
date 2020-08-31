@@ -8,7 +8,7 @@ export const Title = styled.div`
   font-size: 20px;
   font-weight: 900;
   margin-left: 10px;
-  
+  margin-top: 80px;
 `
 
 export const Content = styled.div`
@@ -112,4 +112,41 @@ export const FilterButton = styled(Button)`
   align-items: center;
   padding: 0px 10px;
   display: flex;
+`
+
+export const MenteeBoxContainer = styled.div`
+  background: #FFF;
+  border-radius: 10px;
+  width: 350px;
+  height: 100px;
+  border: 1px solid;
+  margin: 15px;
+  padding: 10px;
+  cursor: pointer;
+  &:hover{
+    background-color: #D8D8D8;
+  }
+`
+
+export const MenteeContainer = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  width: 100%;
+`
+
+export const MenteeTitle = styled.div`
+  font-size: 20px;
+  font-weight: 900;
+`
+
+export const MenteeHashTag = styled.span`
+  background-color: ${MY_PAGE_BACKGROUND};
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid ${MY_PAGE_BORDER};
+  padding: 3px;
+  &:before{
+    content: '# ';
+  }
 `
