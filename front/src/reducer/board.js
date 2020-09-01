@@ -38,18 +38,15 @@ const initialState = [
         comments: [
           {
             id: 1,
-            writer: 'kang',
+            writer: 'son',
             contents: '깊이3',
             time: '2020-08-07 16:00:00',
-            comments: [
-              {
-                id: 1,
-                writer: 'kang',
-                contents: '깊이4',
-                time: '2020-08-07 16:00:00',
-                comments: [],
-              },
-            ],
+          },
+          {
+            id: 2,
+            writer: 'son',
+            contents: '깊이3',
+            time: '2020-08-07 16:00:00',
           },
         ],
       },

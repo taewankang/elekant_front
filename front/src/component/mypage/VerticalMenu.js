@@ -1,9 +1,9 @@
 //마이 페이지 - 좌측 메뉴
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import {MY_PAGE_BORDER, MY_PAGE_BACKGROUND} from '../../color';
-import {MenuContainer} from './style';
-const nameList = ['기본 정보', '멘토 인증', '개인정보 변경', '비밀번호 변경', '로그아웃', '회원탈퇴'];
+import { MY_PAGE_BORDER, MY_PAGE_BACKGROUND } from '../../color';
+import { MenuContainer } from './style';
+const nameList = ['기본 정보', '멘토 인증', '비밀번호 변경', '회원탈퇴'];
 const Block = styled.div`
   width: 200px;
   height: 80px;
@@ -15,46 +15,45 @@ const Block = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
-`
+`;
 
 const ClickButton = styled.button`
   width: 200px;
   height: 50px;
   display: flex;
   flex-direction: column;
-  background-color: ${props => props.menuIdx === props.idx ? '#fff': {MY_PAGE_BACKGROUND}};
+  background-color: ${props =>
+    props.menuIdx === props.idx ? '#fff' : { MY_PAGE_BACKGROUND }};
   justify-content: center;
   align-items: center;
   font-size: 15px;
   color: #000000;
   outline: none;
-`
+`;
 
-const VerticalMenu = ({menuIdx, setMenuIdx}) => {
+const VerticalMenu = ({ menuIdx, setMenuIdx }) => {
   const onClick = useCallback((e, idx) => {
     e.preventDefault();
     setMenuIdx(idx);
-  })
+  });
 
   return (
     <MenuContainer>
       <Block>내 정보</Block>
-      {
-        nameList.map((item, idx) => {
-          return (
-            <ClickButton
-              menuIdx={menuIdx}
-              idx={idx}
-              onClick={(e) => onClick(e, idx)}
-              key={idx}>
-              {item}
-            </ClickButton>
-          )
-        })
-      }
+      {nameList.map((item, idx) => {
+        return (
+          <ClickButton
+            menuIdx={menuIdx}
+            idx={idx}
+            onClick={e => onClick(e, idx)}
+            key={idx}
+          >
+            {item}
+          </ClickButton>
+        );
+      })}
     </MenuContainer>
-  )
-}
-
+  );
+};
 
 export default VerticalMenu;

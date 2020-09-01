@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
+import { BUTTON_COLOR } from '../color';
+import { useSelector, useDispatch } from 'react-redux';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -15,22 +16,38 @@ export const Title = styled.div`
   line-height: 3rem;
 `;
 
-export const ConfirmEmail = styled.div`
-  visibility: ${props => (props.confirm ? 'visible' : 'hidden')};
+export const InputContainer = styled.div`
+  width: 400px;
+  height: 32px;
+  margin: 10px 0px;
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  height: 32px;
+  padding: 4px 11px;
+  border: 1px solid rgb(217, 217, 217);
+  color: rgb(217, 217, 217);
+`;
+
+export const Button = styled.button`
+  background-color: ${BUTTON_COLOR};
+  margin-top: 20px;
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  border: none;
+  width: 100px;
+  height: 32px;
+  border: 1px solid #000;
 `;
 
 const ForgotId = () => {
-  const [confirm, setConfirm] = useState(false);
   const [info, setInfo] = useState({
     email: '',
     pwd: '',
     confirm: '',
   });
-
-  const onClick = e => {
-    e.preventDefault();
-    setConfirm(true);
-  };
 
   const onChange = e => {
     setInfo({
@@ -39,23 +56,30 @@ const ForgotId = () => {
     });
   };
 
+  const onClick = e => {
+    e.preventDefault();
+  };
+
   return (
     <Container>
       <Title>아이디 찾기</Title>
-      <div>
-        <label>이메일:</label>
-        <input value={info.email} name="email" onChange={onChange} />
-        <button onClick={onClick}>인증하기</button>
-      </div>
-      <ConfirmEmail confirm={confirm}>
-        <label>이메일 확인</label>
-        <input value={info.confirm} name="confirm" onChange={onChange} />
-        <button>인증 확인</button>
-      </ConfirmEmail>
-      <div>
-        <label>비밀번호:</label>
-        <input value={info.pwd} name="pwd" onChange={onChange} />
-      </div>
+      <InputContainer>
+        <Input
+          value={info.email}
+          placeholder="이메일"
+          name="email"
+          onChange={onChange}
+        />
+      </InputContainer>
+      <InputContainer>
+        <Input
+          value={info.pwd}
+          placeholder="이름"
+          name="pwd"
+          onChange={onChange}
+        />
+      </InputContainer>
+      <Button onClick={onClick}>아이디 찾기</Button>
     </Container>
   );
 };
