@@ -28,3 +28,25 @@ export const InputContainer = styled.div`
   height: 100%;
   
 `
+
+export const FindContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+`
+
+export const FindID = styled.span`
+  cursor: pointer;
+  color: black;
+  &:hover {
+    color: skyblue;
+  }
+`
+
+export const FindPwd = styled.span`
+  cursor: pointer;
+  color: black;
+  &:hover {
+    color: skyblue;
+  }
+`

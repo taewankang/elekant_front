@@ -1,8 +1,8 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { TreeSelect, Button, Input } from "antd";
-import { BUTTON_COLOR } from "../color";
-import ProfileBox from "../component/mentor/ProfileBox";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { TreeSelect, Button, Input } from 'antd';
+import { BUTTON_COLOR } from '../color';
+import ProfileBox from '../component/mentor/ProfileBox';
 const { Search } = Input;
 const Back = styled.div`
   width: 100%;
@@ -60,16 +60,16 @@ const Mento = () => {
         <Mymentor>
           <MentorArea></MentorArea>
         </Mymentor>
-        <Mymentor style={{ display: "inline" }}>
+        <Mymentor style={{ display: 'inline' }}>
           <div>
             <TreeSelect
               placeholder="Please select"
-              dropdownStyle={{ maxHeight: 300, overflow: "auto" }}
+              dropdownStyle={{ maxHeight: 300, overflow: 'auto' }}
             />
 
             <Search placeholder="search" style={{ width: 400 }} />
           </div>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: 'flex' }}>
             <MenteeBox>
               <ProfileBox />
             </MenteeBox>
