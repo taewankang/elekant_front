@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { BUTTON_COLOR } from '../color';
+import { BUTTON_COLOR } from 'color.js';
 import { useSelector, useDispatch } from 'react-redux';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 100px;
   align-items: center;
 `;
 
@@ -14,6 +13,7 @@ export const Title = styled.div`
   font-size: 20px;
   font-weight: bold;
   line-height: 3rem;
+  margin-top: 100px;
 `;
 
 export const InputContainer = styled.div`

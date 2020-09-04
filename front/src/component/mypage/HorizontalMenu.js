@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
-import { MY_PAGE_BACKGROUND, MY_PAGE_BORDER } from '../../color';
+import { MY_PAGE_BACKGROUND, MY_PAGE_BORDER } from 'color.js';
 
 const HorizontalMenuContainer = styled.div`
   margin-bottom: 20px;
@@ -10,6 +10,7 @@ const HorizontalMenuContainer = styled.div`
   border: 1px solid ${MY_PAGE_BORDER};
   background-color: ${MY_PAGE_BACKGROUND};
 `;
+
 const HorizontalMenu = ({ menuIdx, setMenuIdx }) => {
   return (
     <HorizontalMenuContainer>

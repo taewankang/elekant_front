@@ -1,7 +1,7 @@
 //마이 페이지 - 좌측 메뉴
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { MY_PAGE_BORDER, MY_PAGE_BACKGROUND } from '../../color';
+import { MY_PAGE_BORDER, MY_PAGE_BACKGROUND } from 'color.js';
 import { MenuContainer } from './style';
 const nameList = ['기본 정보', '멘토 인증', '비밀번호 변경', '회원탈퇴'];
 const Block = styled.div`

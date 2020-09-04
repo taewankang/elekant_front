@@ -5,58 +5,24 @@ import ChangePassword from '../component/mypage/ChangePassword';
 import Exit from '../component/mypage/Exit';
 import IdentifyMento from '../component/mypage/IdentifyMento';
 import styled from 'styled-components';
-import { MY_PAGE_BACKGROUND } from '../color';
+import { MY_PAGE_BACKGROUND } from 'color.js';
 import { useSelector } from 'react-redux';
-import { MY_PAGE_APP_WIDTH } from '../constant';
-import HorizontalMenu from '../component/mypage/HorizontalMenu';
+import { MY_PAGE_APP_WIDTH } from 'constant.js';
 
 const MyPageContainer = styled.div`
   display: flex;
   height: 100vh;
-  overflow-x: auto;
   background-color: ${MY_PAGE_BACKGROUND};
   width: 100%;
-  // 화면이 640보다 작을 때
-  @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px) {
-    justify-content: center;
-    width: 100%;
-  }
-
-  // 화면이 640보다 클 때
-  @media only screen and (min-width: ${MY_PAGE_APP_WIDTH}px) {
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  // 화면이 1020보다 클 때
-  @media only screen and (min-width: 1020px) {
-    justify-content: center;
-  }
+  justify-content: center;
 `;
 
 const MyPageContents = styled.div`
   width: 1000px;
   display: flex;
   height: 700px;
-  margin-top: 80px;
-
-  //화면이 640보다 작을 때
-  @media only screen and (max-width: ${MY_PAGE_APP_WIDTH}px) {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  //화면이 640보다 클 때
-  @media only screen and (min-width: ${MY_PAGE_APP_WIDTH + 1}px) {
-    overflow-x: auto;
-    width: 100%;
-    min-width: 1020px;
-  }
-
-  //화면이 1020보다 클 때
-  @media only screen and (min-width: 1020px) {
-    width: 1020px;
-  }
+  margin-top: 100px;
+  width: 1020px;
 `;
 
 const VerticalMenuContainer = styled.div`
@@ -89,9 +55,6 @@ const MyPage = ({ history }) => {
           <VerticalMenuContainer>
             <VerticalMenu menuIdx={menuIdx} setMenuIdx={setMenuIdx} />
           </VerticalMenuContainer>
-          <HorizontalMenuContainer>
-            <HorizontalMenu menuIdx={menuIdx} setMenuIdx={setMenuIdx} />
-          </HorizontalMenuContainer>
           {menuIdx === 0 && <NormalInfo />}
           {menuIdx === 1 && <IdentifyMento />}
           {menuIdx === 2 && <ChangePassword />}

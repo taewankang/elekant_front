@@ -7,42 +7,33 @@ import SignUp from './page/SignUp';
 import Login from './page/Login';
 import Mentor from './page/Mentor';
 import Mentee from './page/Mentee';
-import Board from './page/Board';
+import BoardMain from './page/BoardMain';
 import MyPage from './page/MyPage';
 import Post from './page/Post';
 import BoardDetail from './page/BoardDetail';
 import ForgotId from './page/ForgotId';
 import ForgotPwd from './page/ForgotPwd';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  BrowserRouter,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 const App = () => {
   const { isLogin } = useSelector(state => state.user);
   return (
-    <div style={{ overflowY: 'hidden' }}>
-      <BrowserRouter>
-        <Router>
-          {isLogin ? <AfterLogin /> : <BeforeLogin />}
-          <Switch>
-            <Route exact path="/" component={Home} /> //메인 페이지
-            <Route path="/signup" component={SignUp} /> //회원가입 페이지
-            <Route path="/login" component={Login} /> //로그인 화면
-            <Route path="/mentor" component={Mentor} /> //멘토 페이지
-            <Route path="/mentee" component={Mentee} /> //멘티 페이지
-            <Route path="/board/post" component={Post} /> //게시판에 새로운 글
-            쓰기
-            <Route path="/board/detail/:id" component={BoardDetail} /> //게시판
-            상세 페이지
-            <Route path="/board" component={Board} /> //게시판 화면
-            <Route path="/mypage" component={MyPage} /> //게시판 화면
-            <Route path="/forgotId" component={ForgotId} /> //아이디 찾기
-            <Route path="/forgotPwd" component={ForgotPwd} /> //비밀번호 찾기
-          </Switch>
-        </Router>
-      </BrowserRouter>
+    <div style={{ margin: '0px' }}>
+      <Router>
+        {isLogin ? <AfterLogin /> : <BeforeLogin />}
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/login" component={Login} />
+          <Route path="/mentor" component={Mentor} />
+          <Route path="/mentee" component={Mentee} />
+          <Route path="/board/post" component={Post} />
+          <Route path="/board/detail/:id" component={BoardDetail} />
+          <Route path="/board" component={BoardMain} />
+          <Route path="/mypage" component={MyPage} />
+          <Route path="/forgotId" component={ForgotId} />
+          <Route path="/forgotPwd" component={ForgotPwd} />
+        </Switch>
+      </Router>
     </div>
   );
 };

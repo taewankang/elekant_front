@@ -13,7 +13,7 @@ import {
 } from './style';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { COMMENT_POST_REQUEST } from '../../reducer/board';
+import { COMMENT_POST_REQUEST } from 'reducer/board';
 import { Link } from 'react-router-dom';
 import Comment from './Comment';
 

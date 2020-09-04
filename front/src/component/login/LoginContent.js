@@ -8,17 +8,16 @@ import {
   FindPwd,
   FindContainer,
 } from './style';
-import { Form, Input, Button, Switch } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { useDispatch } from 'react-redux';
 import 'antd/dist/antd.css';
-import { BUTTON_COLOR } from '../../color';
-import { LOGIN_REQUEST } from '../../reducer/user';
-import { Link } from 'react-router-dom';
-import ForgotId from '../../page/ForgotId';
-
-const LoginContent = ({ history }) => {
+import { BUTTON_COLOR } from 'color';
+import { LOGIN_REQUEST } from 'reducer/user';
+import { Link, useHistory } from 'react-router-dom';
+import ForgotId from 'page/ForgotId';
+const LoginContent = () => {
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const onFinish = useCallback(values => {
     //values에 아이디, 비밀번호 값이 다 저장되어 있음
     dispatch({

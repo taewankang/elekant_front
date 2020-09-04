@@ -78,11 +78,33 @@ function* addNewPost() {
   yield takeEvery(NEW_POST_REQUEST, addPost);
 }
 
+/* 댓글에 답글 달기 */
+async function addCommentAPI() {}
+
+function* addComment(action) {
+  try {
+    // yield addCommentAPI();
+    yield put({
+      type: ADD_COMMENT_SUCCESS,
+      data: action.data,
+    });
+  } catch (e) {
+    yield put({
+      type: ADD_COMMENT_FAILURE,
+      data: action.data,
+    });
+  }
+}
+
+function* addCommentRequest() {
+  yield takeEvery(ADD_COMMENT_REQUEST, addComment);
+}
+
 export default function* boardSaga() {
   yield all([
     fork(boardDataRequest), // 게시판 글 불러오기
     fork(addNewCommentRequest), // 게시판 댓글 불러오기
     fork(addNewPost), // 새로운 글 등록하기
-    // fork(addCommentRequest)         //게시글에 답글 달기 - 미정 생각이 필요
+    fork(addCommentRequest), //게시글에 답글 달기 - 미정 생각이 필요
   ]);
 }

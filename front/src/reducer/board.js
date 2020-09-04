@@ -33,7 +33,7 @@ const initialState = [
       {
         id: 1,
         writer: 'han',
-        contents: '깊이2',
+        contents: '깊이5',
         time: '2020-08-07 16:00:00',
         comments: [
           {
@@ -44,6 +44,18 @@ const initialState = [
           },
           {
             id: 2,
+            writer: 'son',
+            contents: '깊이3',
+            time: '2020-08-07 16:00:00',
+          },
+          {
+            id: 3,
+            writer: 'son',
+            contents: '깊이3',
+            time: '2020-08-07 16:00:00',
+          },
+          {
+            id: 4,
             writer: 'son',
             contents: '깊이3',
             time: '2020-08-07 16:00:00',
@@ -89,6 +101,7 @@ export const ADD_COMMENT_FAILURE = 'ADD_COMMENT_FAILURE';
 //좀 더 생각해보기
 
 export const board = (state = initialState, action) => {
+  console.log(state, action.data);
   switch (action.type) {
     case BOARD_DATA_REQUEST:
       return state;
@@ -100,7 +113,7 @@ export const board = (state = initialState, action) => {
     case COMMENT_POST_REQUEST:
       return state;
     case COMMENT_POST_SUCCESS:
-      state = commentPost(state, action);
+      const id = Number(action.data.id);
       return state;
     case COMMENT_POST_FAILURE:
       return state;
@@ -119,21 +132,3 @@ export const board = (state = initialState, action) => {
       return state;
   }
 };
-
-function commentPost(state, action) {
-  const idx = action.data.id;
-  state[idx - 1].comments = [
-    //댓글 달기 기능인데 서버랑 연결하면 지울 듯
-    ...state[idx - 1].comments,
-    {
-      id: state[idx - 1].comments.length + 1,
-      writer: action.data.nickname,
-      contents: action.data.content,
-      time: '2020.08.29 20:03',
-      like: 0,
-      comments: [],
-    },
-  ];
-  console.log(state);
-  return state;
-}

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { MY_PAGE_BACKGROUND, MY_PAGE_BORDER, BUTTON_COLOR } from '../../color';
+import { MY_PAGE_BACKGROUND, MY_PAGE_BORDER, BUTTON_COLOR } from 'color.js';
 const BOARD_WIDTH = 800;
 export const Container = styled.div`
   width: 100%;
@@ -224,5 +224,9 @@ export const CommentTextarea = styled.textarea`
 `;
 
 export const CommentBlock = styled.div`
-  margin-bottom: 100px;ß
+  margin-bottom: 100px;
+`;
+
+export const CommentTime = styled.div`
+  color: #999;
 `;

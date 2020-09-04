@@ -7,7 +7,7 @@ import {
   MenuButton,
 } from '../before_login/style';
 import { UserInfo } from './style';
-const link = ['/mentor', '/mentee', '/board/1', 'mypage'];
+const link = ['/mentor', '/mentee', '/board/1', '/mypage'];
 const name = ['Mento', 'Mentee', 'Board', 'My Page'];
 const index = () => {
   return (
