@@ -1,5 +1,5 @@
 const initialState = {
-  isLogin: true, //로그인 여부를 확인
+  isLogin: false, //로그인 여부를 확인
   state: 'mentor', //나는 멘티인가 멘토인가
   id: '태완짱짱', //로그인 하는 아이디
   name: '강태완', //이건 왜 만들었지 흠..
@@ -95,8 +95,32 @@ export const WITHDRAWAL_REQUEST = 'WITHDRAWAL_REQUEST';
 export const WITHDRAWAL_SUCCESS = 'WITHDRAWAL_SUCCESS';
 export const WITHDRAWAL_FAILURE = 'WITHDRAWAL_FAILURE';
 
+//아이디 중복 확인
+export const CHECK_ID_REQUEST = 'CHECK_ID_REQUEST';
+export const CHECK_ID_SUCCESS = 'CHECK_ID_SUCCESS';
+export const CHECK_ID_FAILURE = 'CHECK_ID_FAILURE';
+
+//닉네임 중복 확인
+export const CHECK_NICKNAME_REQUEST = 'CHECK_NICKNAME_REQUEST';
+export const CHECK_NICKNAME_SUCCESS = 'CHECK_NICKNAME_SUCCESS';
+export const CHECK_NICKNAME_FAILURE = 'CHECK_NICKNAME_FAILURE';
+
 export const user = (state = initialState, action) => {
   switch (action.type) {
+    case CHECK_ID_REQUEST:
+      return state;
+    case CHECK_ID_SUCCESS:
+      return state;
+    case CHECK_ID_FAILURE:
+      return state;
+
+    case CHECK_NICKNAME_REQUEST:
+      return state;
+    case CHECK_NICKNAME_SUCCESS:
+      return state;
+    case CHECK_NICKNAME_FAILURE:
+      return state;
+
     case LOGIN_REQUEST:
       return state;
     case LOGIN_SUCCESS:

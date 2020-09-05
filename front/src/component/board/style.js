@@ -197,10 +197,6 @@ export const CommentWriter = styled.span`
   font-size: 15px;
 `;
 
-export const CommentContents = styled.div`
-  height: 100%;
-`;
-
 export const CommentLike = styled.span`
   cursor: pointer;
   &:hover {

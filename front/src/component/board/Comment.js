@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   CommentContainer,
   CommentWriter,
-  CommentContents,
   CommentList,
   CommentReply,
   CommentTextarea,
@@ -24,6 +23,7 @@ const Comment = ({ comments }) => {
   const [replyInput, setReplyInput] = useState([]);
   const dispatch = useDispatch();
   const onClick = (e, id) => {
+    //댓글 내용 get해주기
     e.preventDefault();
     return setReplyInput(prev => [
       ...prev.slice(0, id - 1),
@@ -51,7 +51,7 @@ const Comment = ({ comments }) => {
             <CommentList>
               <CommentWriter>{item.writer}</CommentWriter>
               <CommentTime>{item.time}</CommentTime>
-              <CommentContents>{item.contents}</CommentContents>
+              <div>{item.contents}</div>
               <div>
                 <CommentReply
                   value={item.id}
@@ -77,7 +77,7 @@ const Comment = ({ comments }) => {
                             <CommentWriter>{item2.writer}</CommentWriter>
                             <CommentTime>{item2.time}</CommentTime>
                           </div>
-                          <CommentContents>{item2.contents}</CommentContents>
+                          <div>{item2.contents}</div>
                           <hr />
                         </CommentList>
                       </CommentContainer>

@@ -1,39 +1,60 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Title,
   InputContainer,
   SignUpContainer,
   SignUpContents,
-} from "./style";
-import { Form, Input, Button, Select, Col } from "antd";
-
+  Button,
+  Form,
+} from './style';
+import { Input, Select, Col } from 'antd';
+import { useDispatch } from 'react-redux';
+import {
+  CHECK_ID_REQUEST,
+  CHECK_NICKNAME_REQUEST,
+  SIGN_UP_REQUEST,
+} from 'reducer/user.js';
 const { Option } = Select;
 const { Search } = Input;
 
 const SignUpContent = () => {
-  const [id, setId] = useState("");
-  const [password, setPwd] = useState("");
-  const [pwCheck, setCheck] = useState("");
-  const [mail, setMail] = useState("");
-  const [status, setStatus] = useState("error");
-  const [mailConfirm, setMailConfirm] = useState(false);
-  useEffect(() => {
-    if (password === pwCheck) setStatus("success");
-    else setStatus("error");
-  }, [pwCheck]);
+  const [userInfo, setUserInfo] = useState({
+    id: '',
+    pwd: '',
+    pwdCheck: '',
+    email: '',
+    nickname: '',
+  });
 
-  const onChange = (e) => {
-    if (e.target.id === "basic_username") setId(e.target.value);
-    else if (e.target.id === "basic_password") setCheck(e.target.value);
-    else if (e.target.id === "basic_password_check") setCheck(e.target.value);
-    else if (e.target.id === "basic_mail") setMail(e.target.value);
+  console.log(userInfo);
+  const dispatch = useDispatch();
+  const onChange = e => {
+    setUserInfo({
+      ...userInfo,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const mailConfirmClick = (e) => {
-    console.log(mailConfirm)
-    setMailConfirm(true);
-    //메일 인증 서버로 보내기
-  }
+  const onSubmit = e => {
+    e.preventDefault();
+    console.log(e.target.name);
+    if (e.target.name === 'id') {
+      dispatch({
+        type: CHECK_ID_REQUEST,
+        data: userInfo.id,
+      });
+    } else if (e.target.name === 'nickname') {
+      dispatch({
+        type: CHECK_NICKNAME_REQUEST,
+        data: userInfo.nickname,
+      });
+    } else if (e.target.name === 'submit') {
+      dispatch({
+        type: SIGN_UP_REQUEST,
+        data: userInfo,
+      });
+    }
+  };
 
   return (
     <div>
@@ -41,67 +62,65 @@ const SignUpContent = () => {
         <SignUpContents>
           <Title>회원가입</Title>
           <InputContainer>
-            <Form
-              style={{ width: "80%" }}
-              name="basic"
-              initialValues={{ remember: true }}>
-              <Form.Item
-                className="username"
-                name="username"
-                rules={[{ required: true, message: "아이디를 입력하세요!" }]}
-                value={id}
-                onChange={onChange}>
-                <div style={{ display: "flex" }}>
-                  <Input placeholder="아이디" />
-                  <Button>중복 확인</Button>
-                </div>
-              </Form.Item>
-              <Form.Item
-                name="password"
-                value={password}
-                onChange={onChange}
-                rules={[{ required: true, message: "비밀번호를 입력하세요!" }]}>
-                <Input.Password placeholder="비밀번호" />
-              </Form.Item>
-              <Form.Item
-                name="password_check"
-                value={pwCheck}
-                onChange={onChange}
-                hasFeedback
-                validateStatus={status}
-                rules={[
-                  { required: true, message: "비밀번호를 다시 입력해주세요" },
-                ]}>
-                <Input.Password placeholder="비밀번호 확인" />
-              </Form.Item>
-              <Form.Item name="mail" value={mail}>
-                <div style={{ display: "flex" }}>
-                  <Input placeholder="메일" />
-                  <Button onClick={mailConfirmClick}>
-                    메일인증
-                  </Button>
-                </div>
-              </Form.Item>
-              {
-                mailConfirm &&
-                <Form.Item name="mail" value={mail}>
-                  <div style={{ display: "flex" }}>
-                    <Input placeholder="이메일 확인" />
-                    <Button>확인</Button>
-                  </div>
-                </Form.Item>
-              }
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <Form.Item>
-                  <Button
-                    style={{ fontWeight: "900", backgroundColor: "#C62917" }}
-                    type="primary"
-                    htmlType="submit">
-                    Submit
-                  </Button>
-                </Form.Item>
+            <Form onSubmit={onSubmit}>
+              <div style={{ display: 'flex' }}>
+                <Input
+                  value={userInfo.id}
+                  name="id"
+                  onChange={onChange}
+                  placeholder="아이디"
+                />
+                <Button name="id" onClick={onSubmit}>
+                  확인
+                </Button>
               </div>
             </Form>
+            <Form onSubmit={onSubmit}>
+              <div style={{ display: 'flex' }}>
+                <Input
+                  value={userInfo.nickname}
+                  name="nickname"
+                  onChange={onChange}
+                  placeholder="nickname"
+                />
+                <Button name="nickname" onClick={onSubmit}>
+                  확인
+                </Button>
+              </div>
+            </Form>
+            <Input.Password
+              onChange={onChange}
+              value={userInfo.pwd}
+              style={{ margin: '5px 0px' }}
+              name="pwd"
+              placeholder="비밀번호"
+            />
+            <Input.Password
+              onChange={onChange}
+              name="pwdCheck"
+              style={{ margin: '5px 0px' }}
+              value={userInfo.pwdCheck}
+              placeholder="비밀번호 확인"
+            />
+            <div
+              style={{
+                display: 'flex',
+                marginTop: '5px',
+                marginBottom: '10px',
+              }}
+            >
+              <Input
+                onChange={onChange}
+                name="email"
+                value={userInfo.email}
+                placeholder="메일"
+              />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Button name="submit" onClick={onSubmit}>
+                Submit
+              </Button>
+            </div>
           </InputContainer>
         </SignUpContents>
       </SignUpContainer>
