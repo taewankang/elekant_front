@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/forgotId" component={ForgotId} />
           <Route path="/forgotPwd" component={ForgotPwd} />
         </Switch>
-      </Router>
+      </Router> 
     </div>
   );
 };
